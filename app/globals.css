@@ -1,23 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-@import "tailwindcss";
-
-@theme {
-  --font-family-sans: "Inter", system-ui, sans-serif;
-  --font-family-display: "var(--font-poppins)", "Poppins", system-ui, sans-serif;
-
-  /* KAA Premium Dark Theme Colors */
-  --color-brand-pink: #E91E63;
-  --color-brand-purple: #8A2BE2;
-  --color-dark-bg: #0D0E17;
-  --color-dark-surface: #151B27;
-  
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-delayed: float 6s ease-in-out infinite 2s;
-  --animate-marquee: marquee 30s linear infinite;
-  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
-  --animate-shimmer: shimmer 2s ease-in-out infinite;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
