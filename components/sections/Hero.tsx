@@ -156,6 +156,23 @@ export default function Hero() {
                 </div>
               </div>
 
+              {/* Floating Badge 3 - Top Left Floating Original Logo */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -top-10 -left-10 p-3.5 rounded-2xl bg-[#141521]/95 backdrop-blur-md flex items-center justify-center z-20 shadow-[0_15px_35px_rgba(0,0,0,0.6)] border border-white/12 h-14 w-44 group hover:scale-[1.05] transition-transform duration-300 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#E91E63]/10 to-[#8A2BE2]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-full h-full z-10">
+                  <Image
+                    src="/kaa-logo.png"
+                    alt="KAA Technologies Original Logo"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </motion.div>
+
               {/* Floating Badge 1 - Bottom Left */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}

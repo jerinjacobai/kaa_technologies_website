@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { CheckCircle2, Users, Clock, MessageSquare, Monitor, Database, Lightbulb } from "lucide-react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const features = [
@@ -117,24 +118,30 @@ export default function About() {
                   ))}
                 </div>
 
-                {/* Decorative card */}
+                {/* KAA Corporate Brand Showcase Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-[#E91E63]/20 to-[#8A2BE2]/20 border border-white/10 relative overflow-hidden group"
+                  className="p-6 rounded-2xl bg-[#141521]/95 border border-white/10 relative overflow-hidden group shadow-xl"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#E91E63]/0 to-[#8A2BE2]/0 group-hover:from-[#E91E63]/20 group-hover:to-[#8A2BE2]/20 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#E91E63]/10 to-[#8A2BE2]/10 opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  <div className="flex items-center gap-5 relative z-10">
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-black/30 backdrop-blur-md border border-white/10">
-                      <Users size={24} className="text-white" />
+                  <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
+                    <div className="relative w-36 h-14 flex-shrink-0 bg-black/45 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                      <Image
+                        src="/kaa-logo.png"
+                        alt="KAA Technologies Original Brand Logo"
+                        fill
+                        style={{ objectFit: "contain", padding: "6px" }}
+                        className="transition-all duration-300"
+                      />
                     </div>
-                    <div>
-                      <div className="font-display font-bold text-lg text-white mb-1">Expert Team</div>
-                      <div className="text-sm text-white/70 leading-relaxed">
-                        Passionate professionals committed to your success in the digital era.
+                    <div className="text-center sm:text-left">
+                      <div className="font-display font-bold text-base text-white mb-1">Our Corporate Brand Identity</div>
+                      <div className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
+                        We represent elite engineering, smart integrations, and a digital-first approach for modern enterprises in Qatar.
                       </div>
                     </div>
                   </div>
