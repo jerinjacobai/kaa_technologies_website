@@ -56,14 +56,18 @@ export default function Navbar() {
                 e.preventDefault();
                 scrollTo("#home", "Home");
               }}
-              className="flex items-center group flex-shrink-0"
+              className="flex items-center group flex-shrink-0 relative"
             >
-              <div className="relative h-12 w-48">
+              {/* Premium Interactive Backdrop Glow Aura */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#E91E63]/25 to-[#8A2BE2]/25 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-75 group-hover:scale-105" />
+
+              <div className="relative h-12 w-48 transition-all duration-300 group-hover:scale-[1.03]">
                 <Image
                   src="/kaa-logo.png"
                   alt="KAA Software and Technologies"
                   fill
                   style={{ objectFit: "contain", objectPosition: "left center" }}
+                  className="brightness-0 invert opacity-95 transition-all duration-300 drop-shadow-[0_0_6px_rgba(233,30,99,0.3)] group-hover:drop-shadow-[0_0_12px_rgba(233,30,99,0.65)]"
                   priority
                 />
               </div>

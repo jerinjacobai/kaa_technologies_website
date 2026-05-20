@@ -42,14 +42,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand col */}
           <div className="lg:col-span-2">
-            <a href="#" onClick={(e) => { e.preventDefault(); scrollTo("#home"); }} className="inline-block mb-6">
-              <div className="relative h-12 w-48">
+            <a href="#" onClick={(e) => { e.preventDefault(); scrollTo("#home"); }} className="inline-block mb-6 group relative">
+              {/* Premium Interactive Backdrop Glow Aura */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#E91E63]/10 to-[#8A2BE2]/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-75 group-hover:scale-105" />
+
+              <div className="relative h-12 w-48 transition-all duration-300 group-hover:scale-[1.03]">
                 <Image
                   src="/kaa-logo.png"
                   alt="KAA Software and Technologies"
                   fill
                   style={{ objectFit: "contain", objectPosition: "left center" }}
-                  className="brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+                  className="brightness-0 invert opacity-80 transition-all duration-300 drop-shadow-[0_0_4px_rgba(233,30,99,0.15)] group-hover:opacity-100 group-hover:drop-shadow-[0_0_10px_rgba(233,30,99,0.5)]"
                 />
               </div>
             </a>

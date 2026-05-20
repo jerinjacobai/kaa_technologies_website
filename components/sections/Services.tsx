@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  HeadphonesIcon, Globe, Server, Shield, Megaphone, Building2, ArrowRight
+  HeadphonesIcon, Globe, Server, Shield, Megaphone, Cctv, ArrowRight
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -32,9 +32,9 @@ const services = [
     desc: "We offer SEO, social media marketing, branding, design, and campaign management to boost your business.",
   },
   {
-    icon: Building2,
-    title: "Industries We Serve",
-    desc: "We serve diverse industries including retail, e-commerce, real estate, education, healthcare, hospitality, and SMEs.",
+    icon: Cctv,
+    title: "CCTV & Biometric Integrations",
+    desc: "We deliver advanced IP security surveillance setups and state-of-the-art biometric attendance controls, seamlessly integrated with your business networks.",
   },
 ];
 
