@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
@@ -15,12 +15,36 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
+    const initialTheme = savedTheme || "dark";
+    setTheme(initialTheme);
+    if (initialTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
+      document.documentElement.classList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      setTheme("dark");
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    }
+  };
 
   const scrollTo = (href: string, label?: string) => {
     setMobileOpen(false);
@@ -106,34 +130,50 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/80 hover:text-white hover:border-[#E91E63] hover:bg-[#E91E63]/10 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
             <a
               href="tel:+97400000000"
               className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/80 hover:text-white hover:border-[#E91E63] hover:bg-[#E91E63]/10 transition-all duration-300"
             >
               <Phone size={16} />
             </a>
-              <button
-                onClick={() => scrollTo("#contact", "Contact Us")}
-                id="nav-start-consultation"
-                className="btn-pink"
-                style={{ borderRadius: "6px", padding: "10px 20px" }}
-              >
-                Start Consultation
-              </button>
-            </div>
+            <button
+              onClick={() => scrollTo("#contact", "Contact Us")}
+              id="nav-start-consultation"
+              className="btn-pink"
+              style={{ borderRadius: "6px", padding: "10px 20px" }}
+            >
+              Start Consultation
+            </button>
+          </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden p-2 rounded-lg transition-colors hover:bg-white/5 border border-white/10"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <X size={22} className="text-white" />
-            ) : (
-              <Menu size={22} className="text-white" />
-            )}
-          </button>
+          {/* Mobile Theme Toggle & Menu Toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-lg transition-colors hover:bg-white/5 border border-white/10 text-white/80 hover:text-white"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              className="p-2.5 rounded-lg transition-colors hover:bg-white/5 border border-white/10"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <X size={20} className="text-white" />
+              ) : (
+                <Menu size={20} className="text-white" />
+              )}
+            </button>
+          </div>
           </div>
         </nav>
       </motion.header>
