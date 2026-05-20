@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="section-padding relative overflow-hidden bg-[#0D0E17]"
+      className="section-padding relative overflow-hidden bg-[#141521]"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

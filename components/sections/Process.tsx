@@ -31,7 +31,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="section-padding relative overflow-hidden bg-[#0D0E17]"
+      className="section-padding relative overflow-hidden bg-[#141521]"
     >
       {/* Decorative */}
       <div className="absolute inset-0 pointer-events-none">
@@ -93,7 +93,7 @@ export default function Process() {
                   
                   {/* Number badge */}
                   <div
-                    className="absolute -top-1 -right-1 w-8 h-8 rounded-full text-xs font-bold flex items-center justify-center text-white bg-[#0D0E17] border border-white/20"
+                    className="absolute -top-1 -right-1 w-8 h-8 rounded-full text-xs font-bold flex items-center justify-center text-white bg-[#141521] border border-white/20"
                   >
                     {step.number.slice(-1)}
                   </div>

@@ -18,7 +18,7 @@ const config: Config = {
           purple: "#8A2BE2",
         },
         dark: {
-          bg: "#0D0E17",
+          bg: "#141521",
           surface: "#151B27",
         },
       },

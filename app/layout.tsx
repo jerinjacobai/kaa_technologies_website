@@ -71,7 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} dark`} suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-[#0D0E17] text-white overflow-x-hidden selection:bg-[#E91E63] selection:text-white`} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased bg-[#141521] text-white overflow-x-hidden selection:bg-[#E91E63] selection:text-white`} suppressHydrationWarning>
         {children}
       </body>
     </html>

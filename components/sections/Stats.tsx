@@ -65,9 +65,9 @@ export default function Stats() {
           <div className="relative overflow-hidden group">
             {/* Fade edges */}
             <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to right, #0D0E17, transparent)" }} />
+              style={{ background: "linear-gradient(to right, #141521, transparent)" }} />
             <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to left, #0D0E17, transparent)" }} />
+              style={{ background: "linear-gradient(to left, #141521, transparent)" }} />
 
             <div className="flex gap-4 animate-marquee group-hover:[animation-play-state:paused]" style={{ width: "max-content" }}>
               {[...industries, ...industries, ...industries, ...industries].map((ind, i) => (

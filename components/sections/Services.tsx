@@ -45,7 +45,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="section-padding relative overflow-hidden bg-[#0D0E17]">
+    <section id="services" className="section-padding relative overflow-hidden bg-[#141521]">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none subtle-grid opacity-30" />
       <div className="absolute inset-0 pointer-events-none">

@@ -24,7 +24,7 @@ export default function Contact() {
   const labelClasses = "block text-xs font-semibold mb-2 text-[#A1A1AA] uppercase tracking-wider";
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-[#0D0E17]">
+    <section id="contact" className="section-padding relative overflow-hidden bg-[#141521]">
       <div className="absolute inset-0 pointer-events-none subtle-grid opacity-20" />
 
       <div className="relative z-10 kaa-container">

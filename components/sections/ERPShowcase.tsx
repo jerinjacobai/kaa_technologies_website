@@ -118,7 +118,7 @@ export default function ERPShowcase() {
                   </div>
                   
                   {/* Actual Mockup Image */}
-                  <div className="relative aspect-[16/10] rounded-b-xl overflow-hidden bg-[#0D0E17]">
+                  <div className="relative aspect-[16/10] rounded-b-xl overflow-hidden bg-[#141521]">
                     <Image
                       src="/kaa-screenshot.jpg"
                       alt="KAA ERP Dashboard Overview"

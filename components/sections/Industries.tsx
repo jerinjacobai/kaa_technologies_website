@@ -14,7 +14,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section className="py-20 relative overflow-hidden bg-[#0D0E17] border-y border-white/5">
+    <section className="py-20 relative overflow-hidden bg-[#141521] border-y border-white/5">
       <div className="absolute inset-0 subtle-grid opacity-20 pointer-events-none" />
       
       <div className="kaa-container relative z-10">

@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#0D0E17] flex items-center min-h-screen"
+      className="relative overflow-hidden bg-[#141521] flex items-center min-h-screen"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -142,7 +142,7 @@ export default function Hero() {
               >
                 <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] w-full">
                   {/* Subtle dark overlay for premium color calibration */}
-                  <div className="absolute inset-0 bg-[#0D0E17]/20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[#141521]/20 mix-blend-overlay z-10 pointer-events-none" />
                   <Image
                     src="/hero-team.png"
                     alt="KAA Software and Technologies Team"

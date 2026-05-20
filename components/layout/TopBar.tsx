@@ -5,7 +5,7 @@ export default function TopBar() {
   return (
     <div
       className="w-full hidden sm:block fixed top-0 left-0 right-0 z-50 h-10 border-b border-white/5"
-      style={{ background: "#0D0E17" }}
+      style={{ background: "#141521" }}
     >
       <div className="kaa-container">
         <div className="flex items-center justify-between h-10">

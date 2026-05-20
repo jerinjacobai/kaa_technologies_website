@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative py-24 overflow-hidden bg-[#0D0E17]"
+      className="relative py-24 overflow-hidden bg-[#141521]"
     >
       <div className="kaa-container relative z-10">
         <ScrollReveal>
