@@ -235,9 +235,8 @@ html.light ::-webkit-scrollbar-thumb {
 
 /* Section background mappings for perfect light contrast */
 html.light section,
-html.light div[class*="bg-[#141521]"],
-html.light div[class*="bg-[#090A10]"],
-html.light div[class*="bg-dark-bg"],
+html.light .bg-\[\#141521\],
+html.light .bg-dark-bg,
 html.light footer {
   background-color: #F3F4F6 !important;
   border-color: rgba(15, 23, 42, 0.06) !important;
@@ -245,9 +244,7 @@ html.light footer {
 
 html.light section.bg-\[\#090A10\],
 html.light footer.bg-\[\#090A10\],
-html.light div.bg-\[\#090A10\],
-html.light section[class*="bg-[#090A10]"],
-html.light footer[class*="bg-[#090A10]"] {
+html.light .bg-\[\#090A10\] {
   background-color: #E5E7EB !important;
 }
 
@@ -382,4 +379,57 @@ html.light div[class*="bg-[#8A2BE2]/"] {
 /* Active underline */
 html.light div[style*="background: rgb(233, 30, 99)"] {
   background-color: #E91E63 !important;
+}
+
+/* ─── Light Mode Premium Component Protection & Refinements ─── */
+
+/* 1. Pink Button Text & Icon Contrast Protection */
+html.light .btn-pink,
+html.light .btn-pink *,
+html.light button.btn-pink {
+  color: #FFFFFF !important;
+}
+html.light .btn-pink:hover,
+html.light .btn-pink:hover * {
+  color: #FFFFFF !important;
+}
+
+/* 2. Outlined Button Enhancements */
+html.light .btn-outline .border-white\/30 {
+  border-color: rgba(31, 41, 55, 0.18) !important;
+}
+html.light .btn-outline:hover .group-hover\:border-white {
+  border-color: #1F2937 !important;
+}
+
+/* 3. WhatsApp CTA Contrast Protection */
+html.light a[href*="wa.me"],
+html.light a[href*="wa.me"] * {
+  color: #FFFFFF !important;
+}
+
+/* 4. Service Card Group Hover State Recovery */
+html.light .group:hover .group-hover\:text-\[\#E91E63\],
+html.light .hover\:text-\[\#E91E63\]:hover {
+  color: #E91E63 !important;
+}
+
+/* 5. Translucent Borders Adaptation (Crisp dark hairlines) */
+html.light .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.04) !important;
+}
+html.light .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .border-white\/12 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html.light .border-white\/15 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+html.light .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+html.light .border-white\/30 {
+  border-color: rgba(15, 23, 42, 0.22) !important;
 }
