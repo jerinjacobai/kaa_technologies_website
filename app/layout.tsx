@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -73,6 +74,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${poppins.variable} dark`} suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-[#141521] text-white overflow-x-hidden selection:bg-[#E91E63] selection:text-white`} suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
