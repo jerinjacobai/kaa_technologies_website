@@ -39,6 +39,32 @@ export default function Hero() {
           style={{ background: "radial-gradient(circle, rgba(138,43,226,0.25) 0%, transparent 70%)" }}
         />
         <div className="absolute inset-0 subtle-grid opacity-20" />
+        
+        {/* Futuristic Cybernetic Neural Nodes and Flowlines */}
+        <svg className="absolute inset-0 w-full h-full opacity-25 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cyber-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#E91E63" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#8A2BE2" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M 50,150 L 250,80 L 450,220 L 650,120 L 850,280 L 1050,180 M 250,80 L 220,320 L 450,220 M 650,120 L 600,380 M 450,220 L 480,480 L 780,420"
+            stroke="url(#cyber-glow)"
+            strokeWidth="1.5"
+            fill="none"
+            strokeDasharray="1200"
+            initial={{ strokeDashoffset: 1200 }}
+            animate={{ strokeDashoffset: 0 }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle cx="50" cy="150" r="3.5" fill="#E91E63" animate={{ r: [3.5, 6, 3.5] }} transition={{ duration: 2, repeat: Infinity }} />
+          <motion.circle cx="250" cy="80" r="4.5" fill="#8A2BE2" animate={{ r: [4.5, 7.5, 4.5] }} transition={{ duration: 3, repeat: Infinity }} />
+          <motion.circle cx="450" cy="220" r="5" fill="#E91E63" animate={{ r: [5, 8.5, 5] }} transition={{ duration: 2.5, repeat: Infinity }} />
+          <motion.circle cx="650" cy="120" r="3.5" fill="#8A2BE2" animate={{ r: [3.5, 6.5, 3.5] }} transition={{ duration: 3.5, repeat: Infinity }} />
+          <motion.circle cx="850" cy="280" r="4.5" fill="#E91E63" animate={{ r: [4.5, 7.5, 4.5] }} transition={{ duration: 2.2, repeat: Infinity }} />
+          <motion.circle cx="1050" cy="180" r="4" fill="#8A2BE2" animate={{ r: [4, 7, 4] }} transition={{ duration: 4, repeat: Infinity }} />
+        </svg>
       </div>
 
       <div className="kaa-container relative z-10 pt-24 sm:pt-28 pb-12 sm:pb-16 w-full">
