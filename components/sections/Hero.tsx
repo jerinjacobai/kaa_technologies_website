@@ -181,8 +181,8 @@ export default function Hero() {
                   {/* Subtle dark overlay for premium color calibration */}
                   <div className="absolute inset-0 bg-[#141521]/15 mix-blend-overlay z-10 pointer-events-none" />
                   <Image
-                    src="/hero-ai-powerhouse.png"
-                    alt="KAA Artificial Intelligence & Robotics Automation Center"
+                    src="/hero-team.png"
+                    alt="KAA Technologies Qatar & Global Office Team"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     priority
