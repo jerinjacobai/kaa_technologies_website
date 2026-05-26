@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
@@ -10,6 +10,17 @@ const highlights = [
 ];
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+
+  // GPU-Accelerated Parallax Scroll-linked Transformations
+  const yHero = useTransform(scrollY, [0, 500], [0, 80]);
+  const scaleHero = useTransform(scrollY, [0, 500], [1, 0.95]);
+  const rotateHero = useTransform(scrollY, [0, 500], [0, -2.5]);
+  
+  const yBadgeL = useTransform(scrollY, [0, 500], [0, -35]);
+  const yBadgeR = useTransform(scrollY, [0, 500], [0, 35]);
+  const opacityBadges = useTransform(scrollY, [0, 450], [1, 0]);
+
   const scrollTo = (id: string) => {
     if (id === "#home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -90,14 +101,13 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display font-bold leading-[1.1] tracking-tight mb-6 text-white"
-              style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)" }}
+              style={{ fontSize: "clamp(2.2rem, 4.2vw, 3.6rem)" }}
             >
-              Innovative Technology
+              Intelligent AI &amp;
               <br />
-              Solutions to{" "}
-              <span className="gradient-text-pink">Grow Your</span>
+              Enterprise Solutions to
               <br />
-              <span className="gradient-text-pink">Business Faster</span>
+              <span className="gradient-text-pink">Scale Globally</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -107,7 +117,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0 text-[#A1A1AA]"
             >
-              We deliver enterprise ERP systems, custom software, dynamic websites, and premium digital solutions designed to help Qatar businesses perform, grow, and lead.
+              We build next-generation ERP platforms, custom e-commerce web applications, and state-of-the-art AI &amp; biometric workflows. Headquartered in Doha, Qatar and Kochi, India, we scale GCC businesses globally.
             </motion.p>
 
             {/* CTAs */}
@@ -122,7 +132,7 @@ export default function Hero() {
                 <ArrowRight size={16} />
               </button>
               <button onClick={() => scrollTo("#services")} className="btn-outline group">
-                Our Services
+                Our Verticals
                 <div className="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center transition-all group-hover:border-white">
                   <Play size={10} className="ml-0.5" />
                 </div>
@@ -151,34 +161,35 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Premium Image Showcase + Floating Badge overlays */}
+          {/* Right: Flagship Parallax Image Showcase + Floating Badge overlays */}
           <div className="relative flex justify-center items-center lg:h-full mt-10 lg:mt-0">
             <motion.div
+              style={{ y: yHero, scale: scaleHero, rotate: rotateHero }}
               initial={{ opacity: 0, x: 60, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="relative w-full max-w-[520px]"
+              className="relative w-full max-w-[540px]"
             >
               {/* Decorative colored glow backdrop */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#E91E63]/10 to-[#8A2BE2]/10 rounded-[2rem] transform rotate-2 scale-102 blur-lg pointer-events-none" />
               
               {/* Glassmorphic border container */}
               <div
-                className="relative rounded-[2rem] overflow-hidden p-2.5 bg-gradient-to-br from-white/12 to-white/3 border border-white/10 shadow-2xl z-10 backdrop-blur-md"
+                className="relative rounded-[2.5rem] overflow-hidden p-3 bg-gradient-to-br from-white/12 to-white/3 border border-white/10 shadow-2xl z-10 backdrop-blur-md"
               >
-                <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] w-full">
+                <div className="relative rounded-[1.8rem] overflow-hidden aspect-[4/3] w-full">
                   {/* Subtle dark overlay for premium color calibration */}
-                  <div className="absolute inset-0 bg-[#141521]/20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[#141521]/15 mix-blend-overlay z-10 pointer-events-none" />
                   <Image
-                    src="/hero-team.png"
-                    alt="KAA Software and Technologies Team"
+                    src="/hero-ai-powerhouse.png"
+                    alt="KAA Artificial Intelligence & Robotics Automation Center"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     priority
                   />
                   
                   {/* Internal border glow */}
-                  <div className="absolute inset-0 rounded-[1.5rem] border border-white/10 pointer-events-none z-20" />
+                  <div className="absolute inset-0 rounded-[1.8rem] border border-white/10 pointer-events-none z-20" />
                 </div>
               </div>
 
@@ -199,29 +210,31 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Badge 1 - Bottom Left */}
+              {/* Floating Badge 1 - Bottom Left: Doha & Kochi Offices */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 px-5 py-3.5 rounded-2xl kaa-card flex items-center gap-3 z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/12"
+                style={{ y: yBadgeL, opacity: opacityBadges }}
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-10 -left-10 px-5 py-4 rounded-2xl kaa-card flex items-center gap-3.5 z-20 shadow-[0_15px_35px_rgba(0,0,0,0.6)] border border-white/12 w-[240px] hover:scale-105 transition-transform cursor-pointer"
               >
-                <span className="text-xl">🇶🇦</span>
+                <span className="text-2xl flex-shrink-0">🏢</span>
                 <div>
-                  <div className="text-[11px] font-bold text-white uppercase tracking-wider leading-none">Qatar Headquarters</div>
-                  <div className="text-[10px] text-[#A1A1AA] mt-1">Doha-based Support</div>
+                  <div className="text-[11px] font-black text-white uppercase tracking-wider leading-none">Global Headquarters</div>
+                  <div className="text-[10px] text-[#A1A1AA] mt-1 leading-snug">Doha, Qatar (HQ)<br />Kochi, India (IDC)</div>
                 </div>
               </motion.div>
 
-              {/* Floating Badge 2 - Top Right */}
+              {/* Floating Badge 2 - Top Right: Serving GCC, India, & Worldwide */}
               <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-6 -right-6 px-5 py-3.5 rounded-2xl kaa-card flex items-center gap-3 z-20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/12"
+                style={{ y: yBadgeR, opacity: opacityBadges }}
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                className="absolute -top-12 -right-8 px-5 py-4 rounded-2xl kaa-card flex items-center gap-3.5 z-20 shadow-[0_15px_35px_rgba(0,0,0,0.6)] border border-white/12 w-[220px] hover:scale-105 transition-transform cursor-pointer"
               >
-                <span className="text-xl">🚀</span>
+                <span className="text-2xl flex-shrink-0">🌍</span>
                 <div>
-                  <div className="text-[11px] font-bold text-white uppercase tracking-wider leading-none">Projects Delivered</div>
-                  <div className="text-lg font-black gradient-text-pink leading-none mt-1">50+</div>
+                  <div className="text-[11px] font-black text-white uppercase tracking-wider leading-none">Market Reach</div>
+                  <div className="text-[10px] text-[#A1A1AA] mt-1 leading-snug">Serving Qatar, GCC, India, &amp; Worldwide Clients</div>
                 </div>
               </motion.div>
 

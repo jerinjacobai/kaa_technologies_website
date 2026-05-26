@@ -1,23 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import { CheckCircle2, Users, Clock, MessageSquare, Monitor, Database, Lightbulb } from "lucide-react";
+import { CheckCircle2, Users, MapPin, Globe, Shield, Sparkles, Building2, Terminal } from "lucide-react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-
-const features = [
-  { icon: CheckCircle2, label: "Brilliant Client Service" },
-  { icon: Clock, label: "24/7 Support" },
-  { icon: MessageSquare, label: "Free Consultations" },
-  { icon: Monitor, label: "User Experience" },
-  { icon: Database, label: "Big Data & Analytics" },
-  { icon: Lightbulb, label: "Quick Tips and Advice" },
-];
 
 const stats = [
   { value: "50+", label: "Successful Projects" },
   { value: "100%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Support Available" },
-  { value: "5+", label: "Years Experience" },
+  { value: "24/7", label: "GCC Support" }
 ];
 
 export default function About() {
@@ -35,14 +25,15 @@ export default function About() {
       </div>
 
       <div className="kaa-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: Text & Features */}
-          <div>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Text & Geographical Alignment (7 columns) */}
+          <div className="lg:col-span-6">
             <ScrollReveal>
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#E91E63]" />
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E91E63]">
-                  About Us
+                  Corporate Footprint
                 </span>
               </div>
             </ScrollReveal>
@@ -52,103 +43,110 @@ export default function About() {
                 className="font-display font-bold leading-tight mb-6 text-white"
                 style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
               >
-                Who <span className="gradient-text-pink">We Are</span>
+                Global Presence. <br />
+                <span className="gradient-text-pink">Local Support.</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-base md:text-lg leading-relaxed mb-8 text-[#A1A1AA]">
-                KAA Software and Technologies is a <strong className="text-white">Qatar-based IT company</strong> committed to delivering reliable, scalable, and cost-effective technology solutions. With a team of passionate experts, we combine innovation with industry knowledge to help clients transform their operations and stay ahead in the digital era.
+              <p className="text-base md:text-lg leading-relaxed mb-6 text-[#A1A1AA]">
+                KAA Software and Technologies operates a high-performance **dual-location model** to serve our enterprise clients. With our strategic corporate headquarters based in **Doha, Qatar**, and our advanced software engineering and AI hub situated in **Kochi, India**, we deliver cutting-edge IT systems and smart automation workflows with rapid local turnaround times.
+              </p>
+              <p className="text-sm sm:text-base leading-relaxed mb-8 text-[#A1A1AA]">
+                While our engineering capability scales globally, our core market operations focus heavily on **Qatar and other GCC nations** (including Saudi Arabia, UAE, Kuwait, Oman, and Bahrain) as well as the **Indian subcontinent**, ensuring high-availability support and strict compliance with local WPS labor standards and security protocols.
               </p>
             </ScrollReveal>
 
-            {/* Feature pills */}
+            {/* Doha & Kochi Details Grid */}
             <ScrollReveal delay={0.3}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                {features.map((feat, i) => (
-                  <motion.div
-                    key={feat.label}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
-                    className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10 hover:bg-[#E91E63]/10 hover:border-[#E91E63]/30 transition-all duration-300 group"
-                  >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-black/20 group-hover:bg-[#E91E63]/20 transition-colors">
-                      <feat.icon size={16} className="text-[#A1A1AA] group-hover:text-[#E91E63] transition-colors" />
+              <div className="grid sm:grid-cols-2 gap-4 mb-10">
+                {/* Doha Card */}
+                <div className="p-5 rounded-2xl bg-white/3 border border-white/6 hover:border-[#E91E63]/30 transition-all duration-300 group">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#E91E63]/10 flex items-center justify-center border border-[#E91E63]/20">
+                      <MapPin size={16} className="text-[#E91E63]" />
                     </div>
-                    <span className="text-sm font-semibold text-[#A1A1AA] group-hover:text-white transition-colors">
-                      {feat.label}
-                    </span>
-                  </motion.div>
-                ))}
+                    <span className="text-sm font-bold text-white uppercase tracking-wider">Qatar Headquarters</span>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#E91E63]/80 uppercase mb-2">Doha (West Bay Office)</div>
+                  <p className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
+                    Directs local client relations, solution architecture, networking audits, and physical biometric &amp; CCTV system security configurations.
+                  </p>
+                </div>
+
+                {/* Kochi Card */}
+                <div className="p-5 rounded-2xl bg-white/3 border border-white/6 hover:border-[#8A2BE2]/30 transition-all duration-300 group">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#8A2BE2]/10 flex items-center justify-center border border-[#8A2BE2]/20">
+                      <Terminal size={16} className="text-[#8A2BE2]" />
+                    </div>
+                    <span className="text-sm font-bold text-white uppercase tracking-wider">Development Center</span>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#8A2BE2]/80 uppercase mb-2">Kochi (Infopark IDC)</div>
+                  <p className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
+                    Spearheads deep-tech full-stack engineering, core WPS ERP compilation, LLM artificial intelligence modeling, and digital branding execution.
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
-              <button onClick={scrollToContact} className="btn-pink">
-                More About Us
-              </button>
+              <div className="flex flex-wrap items-center gap-4">
+                <button onClick={scrollToContact} className="btn-pink">
+                  Engage Worldwide
+                </button>
+                <div className="flex items-center gap-2 text-xs font-mono text-white/50">
+                  <Globe size={14} className="text-[#E91E63]" />
+                  <span>Doha / Kochi / Global</span>
+                </div>
+              </div>
             </ScrollReveal>
           </div>
 
-          {/* Right: Stats grid */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E91E63]/5 to-[#8A2BE2]/5 rounded-[2.5rem] transform rotate-3 scale-105 opacity-50" />
+          {/* Right Column: High-Tech Dual Offices Mockup (5 columns) */}
+          <div className="lg:col-span-6 relative flex flex-col items-center">
+            {/* Visual glow ring directly behind image */}
+            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-[#E91E63]/10 to-[#8A2BE2]/10 transform rotate-2 scale-105 opacity-40 blur-2xl pointer-events-none" />
             
-            <div className="relative p-8 rounded-[2.5rem] kaa-card">
-              <ScrollReveal delay={0.2}>
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  {stats.map((stat, i) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 200 }}
-                      className="bg-black/20 rounded-2xl p-6 text-center border border-white/5 hover:border-white/10 transition-colors"
-                    >
-                      <div className="font-display font-bold mb-2 text-3xl sm:text-4xl gradient-text-pink leading-tight">
-                        {stat.value}
-                      </div>
-                      <div className="text-xs sm:text-sm font-medium text-[#A1A1AA] uppercase tracking-wider">
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  ))}
+            {/* Tactical Image Showcase Frame */}
+            <div className="relative rounded-[2.5rem] overflow-hidden p-2 bg-gradient-to-br from-white/12 to-white/3 border border-white/10 shadow-2xl z-10 w-full transition-transform duration-500 hover:scale-[1.02] mb-6">
+              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-[#151B27]">
+                <Image
+                  src="/kaa-offices.png"
+                  alt="KAA Technologies Global Offices - Doha Corporate Headquarters & Kochi Development Center"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
+                />
+                
+                {/* Floating Office Badge */}
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 z-20">
+                  <Building2 size={10} className="text-[#E91E63]" />
+                  <span className="text-[9px] font-bold text-white uppercase tracking-widest">KAA Corporate Offices</span>
                 </div>
 
-                {/* KAA Corporate Brand Showcase Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                  className="p-6 rounded-2xl bg-[#141521]/95 border border-white/10 relative overflow-hidden group shadow-xl"
+                <div className="absolute inset-0 rounded-[2rem] border border-white/10 pointer-events-none z-20" />
+              </div>
+            </div>
+
+            {/* Horizontal Mini Stats Dashboard */}
+            <div className="w-full grid grid-cols-3 gap-3 z-10">
+              {stats.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className="p-4 rounded-xl bg-white/4 border border-white/6 text-center hover:border-white/10 transition-colors shadow-lg"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#E91E63]/10 to-[#8A2BE2]/10 opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
-                    <div className="relative w-36 h-14 flex-shrink-0 bg-black/45 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
-                      <Image
-                        src="/kaa-logo.png"
-                        alt="KAA Technologies Original Brand Logo"
-                        fill
-                        style={{ objectFit: "contain", padding: "6px" }}
-                        className="transition-all duration-300"
-                      />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <div className="font-display font-bold text-base text-white mb-1">Our Corporate Brand Identity</div>
-                      <div className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
-                        We represent elite engineering, smart integrations, and a digital-first approach for modern enterprises in Qatar.
-                      </div>
-                    </div>
+                  <div className="font-display font-black text-xl sm:text-2xl gradient-text-pink leading-none mb-1">
+                    {stat.value}
                   </div>
-                </motion.div>
-              </ScrollReveal>
+                  <div className="text-[9px] font-bold text-[#A1A1AA] uppercase tracking-wider leading-none">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
