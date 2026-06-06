@@ -64,11 +64,11 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "top-0 bg-[#141521]/80 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/20"
-            : "top-0 sm:top-10 bg-transparent"
+            ? "top-0 bg-space-void/80 backdrop-blur-xl border-b border-neon-cyan/5 shadow-[0_4px_30px_rgba(0,245,255,0.03)]"
+            : "top-0 sm:top-6 bg-transparent"
         }`}
       >
         <nav className="kaa-container">
@@ -82,8 +82,8 @@ export default function Navbar() {
               }}
               className="flex items-center group flex-shrink-0 relative"
             >
-              {/* Premium Interactive Backdrop Glow Aura */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#E91E63]/25 to-[#8A2BE2]/25 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-75 group-hover:scale-105" />
+              {/* Neon Glow Aura */}
+              <div className="absolute -inset-3 bg-gradient-to-r from-neon-cyan/20 to-neon-purple/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-75 group-hover:scale-110" />
 
               <div className="relative h-12 w-48 transition-all duration-300 group-hover:scale-[1.03]">
                 <Image
@@ -91,7 +91,7 @@ export default function Navbar() {
                   alt="KAA Software and Technologies"
                   fill
                   style={{ objectFit: "contain", objectPosition: "left center" }}
-                  className="brightness-0 invert opacity-95 transition-all duration-300 drop-shadow-[0_0_6px_rgba(233,30,99,0.3)] group-hover:drop-shadow-[0_0_12px_rgba(233,30,99,0.65)]"
+                  className="brightness-0 invert opacity-90 transition-all duration-300 drop-shadow-[0_0_8px_rgba(0,245,255,0.3)] group-hover:drop-shadow-[0_0_16px_rgba(0,245,255,0.6)]"
                   priority
                 />
               </div>
@@ -103,77 +103,80 @@ export default function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => scrollTo(link.href, link.label)}
-                className="relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg text-white/80 hover:text-white"
-                style={{
-                  color: activeLink === link.label ? "#FFFFFF" : "rgba(255, 255, 255, 0.7)",
-                }}
-                onMouseEnter={(e) => {
-                  if (activeLink !== link.label)
-                    (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
-                }}
-                onMouseLeave={(e) => {
-                  if (activeLink !== link.label)
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255, 255, 255, 0.7)";
-                }}
+                  className="relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg"
+                  style={{
+                    color: activeLink === link.label ? "#00F5FF" : "rgba(226, 232, 240, 0.7)",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeLink !== link.label)
+                      (e.currentTarget as HTMLElement).style.color = "#E2E8F0";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeLink !== link.label)
+                      (e.currentTarget as HTMLElement).style.color = "rgba(226, 232, 240, 0.7)";
+                  }}
+                >
+                  {link.label}
+                  {activeLink === link.label && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full"
+                      style={{
+                        background: "linear-gradient(90deg, #00F5FF, #8B5CF6)",
+                        boxShadow: "0 0 12px rgba(0,245,255,0.5)",
+                      }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* CTA Area */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className="flex items-center justify-center w-10 h-10 rounded-full border border-neon-cyan/10 text-slate-400 hover:text-neon-cyan hover:border-neon-cyan/30 hover:bg-neon-cyan/5 transition-all duration-300"
+                aria-label="Toggle theme"
               >
-                {link.label}
-                {activeLink === link.label && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full"
-                    style={{ background: "#E91E63", boxShadow: "0 0 8px rgba(233,30,99,0.5)" }}
-                  />
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+              <a
+                href="tel:+97400000000"
+                className="flex items-center justify-center w-10 h-10 rounded-full border border-neon-cyan/10 text-slate-400 hover:text-neon-cyan hover:border-neon-cyan/30 hover:bg-neon-cyan/5 transition-all duration-300"
+              >
+                <Phone size={16} />
+              </a>
+              <button
+                onClick={() => scrollTo("#contact", "Contact Us")}
+                id="nav-start-consultation"
+                className="btn-neon"
+                style={{ borderRadius: "10px", padding: "10px 24px", fontSize: "13px" }}
+              >
+                <span>Start Consultation</span>
+              </button>
+            </div>
+
+            {/* Mobile Toggle */}
+            <div className="flex md:hidden items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-lg transition-colors hover:bg-neon-cyan/5 border border-neon-cyan/10 text-slate-400 hover:text-neon-cyan"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+              <button
+                className="p-2.5 rounded-lg transition-colors hover:bg-neon-cyan/5 border border-neon-cyan/10 text-slate-400"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? (
+                  <X size={18} className="text-neon-cyan" />
+                ) : (
+                  <Menu size={18} />
                 )}
               </button>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/80 hover:text-white hover:border-[#E91E63] hover:bg-[#E91E63]/10 transition-all duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
-            <a
-              href="tel:+97400000000"
-              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/80 hover:text-white hover:border-[#E91E63] hover:bg-[#E91E63]/10 transition-all duration-300"
-            >
-              <Phone size={16} />
-            </a>
-            <button
-              onClick={() => scrollTo("#contact", "Contact Us")}
-              id="nav-start-consultation"
-              className="btn-pink"
-              style={{ borderRadius: "6px", padding: "10px 20px" }}
-            >
-              Start Consultation
-            </button>
-          </div>
-
-          {/* Mobile Theme Toggle & Menu Toggle */}
-          <div className="flex md:hidden items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-lg transition-colors hover:bg-white/5 border border-white/10 text-white/80 hover:text-white"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button
-              className="p-2.5 rounded-lg transition-colors hover:bg-white/5 border border-white/10"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? (
-                <X size={20} className="text-white" />
-              ) : (
-                <Menu size={20} className="text-white" />
-              )}
-            </button>
-          </div>
+            </div>
           </div>
         </nav>
       </motion.header>
@@ -187,9 +190,12 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed inset-0 z-40 md:hidden pt-16"
-            style={{ background: "rgba(13, 14, 23, 0.98)", backdropFilter: "blur(20px)" }}
+            style={{
+              background: "rgba(3, 0, 20, 0.98)",
+              backdropFilter: "blur(24px)",
+            }}
           >
-            <div className="flex flex-col px-6 pt-6 gap-2">
+            <div className="flex flex-col px-6 pt-8 gap-2">
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.label}
@@ -197,11 +203,15 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.07 }}
                   onClick={() => scrollTo(link.href, link.label)}
-                  className="text-left px-4 py-4 rounded-xl text-lg font-semibold transition-all duration-200"
+                  className="text-left px-4 py-4 rounded-xl text-lg font-display font-semibold transition-all duration-200"
                   style={{
-                    color: activeLink === link.label ? "#FFFFFF" : "rgba(255, 255, 255, 0.7)",
-                    borderLeft: activeLink === link.label ? "3px solid #E91E63" : "3px solid transparent",
-                    background: activeLink === link.label ? "rgba(255,255,255,0.03)" : "transparent",
+                    color: activeLink === link.label ? "#00F5FF" : "rgba(226, 232, 240, 0.7)",
+                    borderLeft: activeLink === link.label
+                      ? "3px solid #00F5FF"
+                      : "3px solid transparent",
+                    background: activeLink === link.label
+                      ? "rgba(0, 245, 255, 0.03)"
+                      : "transparent",
                   }}
                 >
                   {link.label}
@@ -212,10 +222,9 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
                 onClick={() => scrollTo("#contact", "Contact Us")}
-                className="mt-4 w-full py-4 rounded-xl text-base font-semibold text-white"
-                style={{ background: "#be185d" }}
+                className="mt-6 w-full py-4 rounded-xl text-base font-display font-bold text-white btn-neon justify-center"
               >
-                Start Consultation
+                <span>Start Consultation</span>
               </motion.button>
             </div>
           </motion.div>

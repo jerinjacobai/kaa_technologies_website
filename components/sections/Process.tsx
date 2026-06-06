@@ -1,123 +1,76 @@
 "use client";
 import { motion } from "framer-motion";
-import { Settings, Calendar, Smile } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { Search, Target, Palette, Code2, TestTube2, Rocket, HeadphonesIcon } from "lucide-react";
 
 const steps = [
-  {
-    number: "01",
-    icon: Settings,
-    title: "Choose Your Service",
-    desc: "Select from our wide range of services tailored to meet your business needs and goals.",
-    gradient: "from-[#E91E63] to-[#8A2BE2]"
-  },
-  {
-    number: "02",
-    icon: Calendar,
-    title: "Make An Appointment",
-    desc: "Book your appointment today and let our expert team help you get started.",
-    gradient: "from-[#8A2BE2] to-[#3B82F6]"
-  },
-  {
-    number: "03",
-    icon: Smile,
-    title: "Enjoy Your Service",
-    desc: "Relax and enjoy exceptional service designed just for you, with quality and care.",
-    gradient: "from-[#3B82F6] to-[#06B6D4]"
-  },
+  { num: "01", title: "Discovery & Analysis", desc: "We dive deep into understanding your business needs, current systems, and goals to map the perfect technical solution.", icon: Search },
+  { num: "02", title: "Strategic Planning", desc: "Our architects design a detailed roadmap — from system architecture to timeline and KPI milestones.", icon: Target },
+  { num: "03", title: "UI/UX Design", desc: "Premium, user-centered interfaces crafted with pixel-perfect precision for maximum engagement and usability.", icon: Palette },
+  { num: "04", title: "Development", desc: "Full-stack engineering with modern frameworks, clean code practices, and agile sprint cycles for rapid progress.", icon: Code2 },
+  { num: "05", title: "Testing & QA", desc: "Rigorous multi-layer testing — unit, integration, performance, and security — to ensure bulletproof reliability.", icon: TestTube2 },
+  { num: "06", title: "Deployment", desc: "Seamless production launches with zero-downtime deployments, data migration, and go-live support.", icon: Rocket },
+  { num: "07", title: "Support & Optimization", desc: "Ongoing monitoring, performance tuning, feature updates, and 24/7 GCC-timezone technical support.", icon: HeadphonesIcon },
 ];
 
 export default function Process() {
   return (
-    <section
-      id="process"
-      className="section-padding relative overflow-hidden bg-[#141521]"
-    >
-      {/* Decorative */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E91E63]/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#8A2BE2]/5 rounded-full blur-[100px]" />
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-      </div>
+    <section id="process" className="section-padding relative overflow-hidden bg-space-deep">
+      <div className="absolute inset-0 subtle-grid opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 kaa-container">
-        {/* Header */}
+      <div className="kaa-container relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#E91E63]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E91E63]">
-                Our Process
-              </span>
-              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#E91E63]" />
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-neon-purple" />
+              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-purple">Our Process</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-neon-purple" />
             </div>
-            <h2
-              className="font-display font-bold leading-tight mb-4 text-white"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-            >
-              How We Work
+            <h2 className="font-display font-bold leading-tight mb-6 text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+              Development Process <br className="hidden sm:block" />
+              <span className="gradient-text-neon">Built for Excellence</span>
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#A1A1AA]">
-              We work by understanding your needs, creating a clear strategy, executing with precision, and delivering quality results with ongoing support.
-            </p>
           </div>
         </ScrollReveal>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line (desktop) */}
-          <div
-            className="absolute top-12 left-[16.67%] right-[16.67%] h-[1px] hidden md:block"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.5), rgba(138, 43, 226, 0.5), transparent)" }}
-          />
+        <div className="relative max-w-3xl mx-auto">
+          {/* Neon vertical line */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-neon-cyan via-neon-purple to-neon-magenta opacity-30" />
 
-          {steps.map((step, i) => (
-            <ScrollReveal key={step.title} delay={i * 0.15}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative text-center group"
-              >
-                {/* Number bubble */}
-                <motion.div
-                  initial={{ scale: 0, rotate: -20 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, type: "spring", stiffness: 200 }}
-                  className={`relative w-24 h-24 mx-auto mb-8 rounded-full flex items-center justify-center z-10 bg-gradient-to-br ${step.gradient} p-[1px]`}
-                >
-                  <div className="w-full h-full rounded-full bg-[#151B27] flex items-center justify-center relative overflow-hidden group-hover:bg-transparent transition-colors duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                    <step.icon size={32} className="text-white relative z-10" />
+          {steps.map((step, i) => {
+            const StepIcon = step.icon;
+            const isEven = i % 2 === 0;
+            return (
+              <ScrollReveal key={step.num} delay={i * 0.08}>
+                <div className={`relative flex items-start gap-6 mb-12 ${isEven ? "md:flex-row" : "md:flex-row-reverse"} pl-16 md:pl-0`}>
+                  {/* Timeline node */}
+                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-4 z-10">
+                    <motion.div
+                      whileInView={{ scale: [0.8, 1.2, 1] }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
+                      className="w-4 h-4 rounded-full bg-neon-cyan border-2 border-space-deep"
+                      style={{ boxShadow: "0 0 12px rgba(0,245,255,0.5), 0 0 24px rgba(0,245,255,0.2)" }}
+                    />
                   </div>
-                  
-                  {/* Number badge */}
-                  <div
-                    className="absolute -top-1 -right-1 w-8 h-8 rounded-full text-xs font-bold flex items-center justify-center text-white bg-[#141521] border border-white/20"
-                  >
-                    {step.number.slice(-1)}
+
+                  {/* Card */}
+                  <div className={`w-full md:w-[calc(50%-2rem)] ${isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}>
+                    <div className="holo-card-static p-6 group hover:border-neon-cyan/15 transition-all">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-8 rounded-lg bg-neon-cyan/8 border border-neon-cyan/10 flex items-center justify-center group-hover:bg-neon-cyan/15 transition-colors">
+                          <StepIcon size={14} className="text-neon-cyan" />
+                        </div>
+                        <span className="text-xs font-mono text-neon-cyan">{step.num}</span>
+                      </div>
+                      <h4 className="font-display font-bold text-white mb-2">{step.title}</h4>
+                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+                    </div>
                   </div>
-                </motion.div>
-
-                <div className="p-8 rounded-[24px] kaa-card relative overflow-hidden">
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br ${step.gradient}`} />
-                  <h3 className="font-display font-bold text-xl mb-4 text-white relative z-10">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[#A1A1AA] relative z-10">
-                    {step.desc}
-                  </p>
                 </div>
-
-                {/* Step number watermark */}
-                <div
-                  className="absolute -top-4 left-6 font-display font-black text-8xl opacity-[0.02] select-none pointer-events-none tracking-tighter"
-                >
-                  {step.number}
-                </div>
-              </motion.div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>

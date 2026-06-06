@@ -1,8 +1,9 @@
 "use client";
-import { motion } from "framer-motion";
-import { CheckCircle2, Users, MapPin, Globe, Shield, Sparkles, Building2, Terminal } from "lucide-react";
+import { MapPin, Globe, Terminal, Building2 } from "lucide-react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import HolographicCard from "@/components/effects/HolographicCard";
+import NeonBorder from "@/components/effects/NeonBorder";
 
 const stats = [
   { value: "50+", label: "Successful Projects" },
@@ -17,136 +18,111 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="section-padding relative overflow-hidden bg-[#090A10]">
-      {/* Background gradients */}
+    <section id="about" className="section-padding relative overflow-hidden bg-space-deep">
+      <div className="absolute inset-0 subtle-grid opacity-20 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] bg-[#E91E63]/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-64 w-[600px] h-[600px] bg-[#8A2BE2]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] bg-neon-magenta/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 -right-64 w-[600px] h-[600px] bg-neon-purple/8 rounded-full blur-[150px]" />
       </div>
 
       <div className="kaa-container relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Text & Geographical Alignment (7 columns) */}
           <div className="lg:col-span-6">
             <ScrollReveal>
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#E91E63]" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E91E63]">
-                  Corporate Footprint
-                </span>
+                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-neon-magenta" />
+                <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-magenta">Corporate Footprint</span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h2
-                className="font-display font-bold leading-tight mb-6 text-white"
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-              >
+              <h2 className="font-display font-bold leading-tight mb-6 text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                 Global Presence. <br />
-                <span className="gradient-text-pink">Local Support.</span>
+                <span className="gradient-text-neon">Local Support.</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-base md:text-lg leading-relaxed mb-6 text-[#A1A1AA]">
-                KAA Software and Technologies operates a high-performance **dual-location model** to serve our enterprise clients. With our strategic corporate headquarters based in **Doha, Qatar**, and our advanced software engineering and AI hub situated in **Kochi, India**, we deliver cutting-edge IT systems and smart automation workflows with rapid local turnaround times.
+              <p className="text-base md:text-lg leading-relaxed mb-6 text-slate-400">
+                KAA Software and Technologies operates a high-performance <strong className="text-white">dual-location model</strong> to serve our enterprise clients. With our strategic corporate headquarters based in <strong className="text-white">Doha, Qatar</strong>, and our advanced software engineering and AI hub situated in <strong className="text-white">Kochi, India</strong>, we deliver cutting-edge IT systems and smart automation workflows with rapid local turnaround times.
               </p>
-              <p className="text-sm sm:text-base leading-relaxed mb-8 text-[#A1A1AA]">
-                While our engineering capability scales globally, our core market operations focus heavily on **Qatar and other GCC nations** (including Saudi Arabia, UAE, Kuwait, Oman, and Bahrain) as well as the **Indian subcontinent**, ensuring high-availability support and strict compliance with local WPS labor standards and security protocols.
+              <p className="text-sm sm:text-base leading-relaxed mb-8 text-slate-400">
+                While our engineering capability scales globally, our core market operations focus heavily on <strong className="text-white">Qatar and other GCC nations</strong> as well as the <strong className="text-white">Indian subcontinent</strong>, ensuring high-availability support and strict compliance with local WPS labor standards and security protocols.
               </p>
             </ScrollReveal>
 
-            {/* Doha & Kochi Details Grid */}
             <ScrollReveal delay={0.3}>
               <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                {/* Doha Card */}
-                <div className="p-5 rounded-2xl bg-white/3 border border-white/6 hover:border-[#E91E63]/30 transition-all duration-300 group">
+                <HolographicCard glowColor="255, 0, 110" className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#E91E63]/10 flex items-center justify-center border border-[#E91E63]/20">
-                      <MapPin size={16} className="text-[#E91E63]" />
+                    <div className="w-8 h-8 rounded-lg bg-neon-magenta/10 flex items-center justify-center border border-neon-magenta/20">
+                      <MapPin size={16} className="text-neon-magenta" />
                     </div>
-                    <span className="text-sm font-bold text-white uppercase tracking-wider">Qatar Headquarters</span>
+                    <span className="text-sm font-display font-bold text-white uppercase tracking-wider">Qatar Headquarters</span>
                   </div>
-                  <div className="text-[11px] font-bold text-[#E91E63]/80 uppercase mb-2">Doha (West Bay Office)</div>
-                  <p className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
+                  <div className="text-[11px] font-mono font-bold text-neon-magenta/80 uppercase mb-2">Doha (West Bay Office)</div>
+                  <p className="text-xs text-slate-400 leading-relaxed group-hover:text-white/95 transition-colors">
                     Directs local client relations, solution architecture, networking audits, and physical biometric &amp; CCTV system security configurations.
                   </p>
-                </div>
+                </HolographicCard>
 
-                {/* Kochi Card */}
-                <div className="p-5 rounded-2xl bg-white/3 border border-white/6 hover:border-[#8A2BE2]/30 transition-all duration-300 group">
+                <HolographicCard glowColor="139, 92, 246" className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#8A2BE2]/10 flex items-center justify-center border border-[#8A2BE2]/20">
-                      <Terminal size={16} className="text-[#8A2BE2]" />
+                    <div className="w-8 h-8 rounded-lg bg-neon-purple/10 flex items-center justify-center border border-neon-purple/20">
+                      <Terminal size={16} className="text-neon-purple" />
                     </div>
-                    <span className="text-sm font-bold text-white uppercase tracking-wider">Development Center</span>
+                    <span className="text-sm font-display font-bold text-white uppercase tracking-wider">Development Center</span>
                   </div>
-                  <div className="text-[11px] font-bold text-[#8A2BE2]/80 uppercase mb-2">Kochi (Infopark IDC)</div>
-                  <p className="text-xs text-[#A1A1AA] leading-relaxed group-hover:text-white/95 transition-colors">
+                  <div className="text-[11px] font-mono font-bold text-neon-purple/80 uppercase mb-2">Kochi (Infopark IDC)</div>
+                  <p className="text-xs text-slate-400 leading-relaxed group-hover:text-white/95 transition-colors">
                     Spearheads deep-tech full-stack engineering, core WPS ERP compilation, LLM artificial intelligence modeling, and digital branding execution.
                   </p>
-                </div>
+                </HolographicCard>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
               <div className="flex flex-wrap items-center gap-4">
-                <button onClick={scrollToContact} className="btn-pink">
-                  Engage Worldwide
+                <button onClick={scrollToContact} className="btn-neon">
+                  <span>Engage Worldwide</span>
                 </button>
-                <div className="flex items-center gap-2 text-xs font-mono text-white/50">
-                  <Globe size={14} className="text-[#E91E63]" />
+                <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
+                  <Globe size={14} className="text-neon-cyan" />
                   <span>Doha / Kochi / Global</span>
                 </div>
               </div>
             </ScrollReveal>
           </div>
 
-          {/* Right Column: High-Tech Dual Offices Mockup (5 columns) */}
           <div className="lg:col-span-6 relative flex flex-col items-center">
-            {/* Visual glow ring directly behind image */}
-            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-[#E91E63]/10 to-[#8A2BE2]/10 transform rotate-2 scale-105 opacity-40 blur-2xl pointer-events-none" />
-            
-            {/* Tactical Image Showcase Frame */}
-            <div className="relative rounded-[2.5rem] overflow-hidden p-2 bg-gradient-to-br from-white/12 to-white/3 border border-white/10 shadow-2xl z-10 w-full transition-transform duration-500 hover:scale-[1.02] mb-6">
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-[#151B27]">
+            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-neon-magenta/8 to-neon-purple/8 transform rotate-2 scale-105 opacity-40 blur-2xl pointer-events-none" />
+
+            <NeonBorder className="w-full mb-6" borderRadius="2rem">
+              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-space-surface transition-transform duration-500 hover:scale-[1.01]">
                 <Image
                   src="/kaa-offices.png"
-                  alt="KAA Technologies Global Offices - Doha Corporate Headquarters & Kochi Development Center"
+                  alt="KAA Technologies Global Offices"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   priority
                 />
-                
-                {/* Floating Office Badge */}
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 z-20">
-                  <Building2 size={10} className="text-[#E91E63]" />
-                  <span className="text-[9px] font-bold text-white uppercase tracking-widest">KAA Corporate Offices</span>
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-neon-cyan/10 z-20">
+                  <Building2 size={10} className="text-neon-cyan" />
+                  <span className="text-[9px] font-mono font-bold text-white uppercase tracking-widest">KAA Corporate Offices</span>
                 </div>
-
-                <div className="absolute inset-0 rounded-[2rem] border border-white/10 pointer-events-none z-20" />
+                <div className="absolute inset-0 border border-neon-cyan/5 rounded-[2rem] pointer-events-none z-20" />
               </div>
-            </div>
+            </NeonBorder>
 
-            {/* Horizontal Mini Stats Dashboard */}
             <div className="w-full grid grid-cols-3 gap-3 z-10">
-              {stats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="p-4 rounded-xl bg-white/4 border border-white/6 text-center hover:border-white/10 transition-colors shadow-lg"
-                >
-                  <div className="font-display font-black text-xl sm:text-2xl gradient-text-pink leading-none mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-[9px] font-bold text-[#A1A1AA] uppercase tracking-wider leading-none">
-                    {stat.label}
-                  </div>
+              {stats.map((stat) => (
+                <div key={stat.label} className="p-4 rounded-xl holo-card-static text-center">
+                  <div className="font-display font-bold text-xl sm:text-2xl gradient-text-neon leading-none mb-1">{stat.value}</div>
+                  <div className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-wider leading-none">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

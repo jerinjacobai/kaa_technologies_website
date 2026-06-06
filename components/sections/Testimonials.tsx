@@ -1,196 +1,135 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import SectionHeader from "@/components/ui/SectionHeader";
 
 const testimonials = [
-  {
-    name: "Mohammed Al-Rashidi",
-    role: "CEO",
-    company: "Gulf Trading Group",
-    text: "KAA Technologies transformed our entire operations. The ERP system they built handles our 400+ employees seamlessly — payroll, HR, finance, and inventory all unified. The attention to detail in the UI is exceptional.",
-    rating: 5,
-    tag: "ERP Implementation",
-    initials: "MA",
-    color: "#3b82f6",
-  },
-  {
-    name: "Priya Menon",
-    role: "COO",
-    company: "HealthFirst Clinics",
-    text: "Our clinic management system is world-class. Patient records, billing, appointments — everything flows perfectly. The team understood our healthcare compliance needs and delivered beyond our expectations.",
-    rating: 5,
-    tag: "Healthcare Software",
-    initials: "PM",
-    color: "#8b5cf6",
-  },
-  {
-    name: "Khalid Al-Mansouri",
-    role: "Director of Operations",
-    company: "Luxe Retail Group",
-    text: "The ecommerce platform they built for us is phenomenal. Sales increased 5x in the first quarter. The mobile experience is flawless and the backend is incredibly intuitive for our team to manage.",
-    rating: 5,
-    tag: "Ecommerce Platform",
-    initials: "KM",
-    color: "#06b6d4",
-  },
-  {
-    name: "Sanjay Gupta",
-    role: "CTO",
-    company: "FleetPro Logistics",
-    text: "We needed a complex SaaS platform built fast and to enterprise standards. KAA delivered in record time without cutting corners. Their architecture is clean, scalable, and incredibly well-documented.",
-    rating: 5,
-    tag: "SaaS Development",
-    initials: "SG",
-    color: "#10b981",
-  },
-  {
-    name: "Fatima Al-Hassan",
-    role: "HR Director",
-    company: "Doha Construction Co.",
-    text: "The HRMS and payroll module has saved our HR department dozens of hours every month. Biometric integration, automated payslips, leave management — everything just works. Highly recommend KAA Technologies.",
-    rating: 5,
-    tag: "HRMS & Payroll",
-    initials: "FH",
-    color: "#f59e0b",
-  },
+  { name: "Ahmed Al-Thani", role: "CEO", company: "Qatar Trading Co", text: "KAA delivered a fully compliant WPS ERP system that transformed our HR operations. Their understanding of Qatar labor laws and technical expertise is unmatched in the region.", initials: "AA" },
+  { name: "Sarah Johnson", role: "Operations Head", company: "GCC Logistics", text: "The workflow automation solution KAA built has saved us hundreds of manual hours monthly. Their AI-powered RPA pipelines are incredibly reliable and well-integrated.", initials: "SJ" },
+  { name: "Mohammed Al-Rashid", role: "CTO", company: "Doha Medical Group", text: "From network infrastructure to cloud migration, KAA handled everything with precision. Their 24/7 support ensures our critical healthcare systems never go down.", initials: "MA" },
+  { name: "Priya Menon", role: "Director", company: "Kerala Spices Export", text: "Our e-commerce platform built by KAA increased our online revenue by 300%. The design is premium and the performance is blazing fast across all markets.", initials: "PM" },
+  { name: "Khalid Al-Mansour", role: "COO", company: "Qatar Construction Group", text: "The CCTV and biometric system KAA installed across our 15 construction sites is exceptional. Real-time monitoring with seamless ERP integration for attendance tracking.", initials: "KA" },
 ];
 
 export default function Testimonials() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [active, setActive] = useState(0);
 
-  const navigate = (dir: number) => {
-    setDirection(dir);
-    setActiveIdx((prev) => (prev + dir + testimonials.length) % testimonials.length);
-  };
-
-  const t = testimonials[activeIdx];
+  useEffect(() => {
+    const timer = setInterval(() => setActive((prev) => (prev + 1) % testimonials.length), 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section id="testimonials" className="section-padding relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.04) 0%, transparent 70%)" }} />
+    <section id="testimonials" className="section-padding relative overflow-hidden bg-space-void">
+      <div className="absolute inset-0 subtle-grid opacity-8 pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="kaa-container relative z-10">
         <ScrollReveal>
-          <SectionHeader
-            badge="Client Testimonials"
-            title={<>What Our <span style={{ background: "linear-gradient(135deg,#3b82f6,#8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Clients Say</span></>}
-            subtitle="Trusted by businesses across the region. Here's what our partners have to say about working with KAA Technologies."
-          />
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-neon-cyan" />
+              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-cyan">Testimonials</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-neon-cyan" />
+            </div>
+            <h2 className="font-display font-bold leading-tight text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+              What Our <span className="gradient-text-neon">Clients Say</span>
+            </h2>
+          </div>
         </ScrollReveal>
 
-        <div className="mt-14">
-          {/* Main testimonial */}
-          <div className="relative overflow-hidden">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={activeIdx}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * 60 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -60 }}
-                transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="p-8 md:p-10 rounded-3xl"
-                style={{
-                  background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  boxShadow: "0 16px 60px rgba(0,0,0,0.3)",
-                }}
-              >
-                {/* Quote icon */}
-                <div className="mb-6">
-                  <Quote size={28} style={{ color: t.color, opacity: 0.6 }} />
-                </div>
-
-                {/* Stars */}
-                <div className="flex gap-1 mb-5">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={14} fill="#f59e0b" style={{ color: "#f59e0b" }} />
+        {/* Desktop: show 3 cards */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 mb-10">
+          {testimonials.slice(0, 3).map((t, i) => (
+            <ScrollReveal key={t.name} delay={i * 0.1}>
+              <div className="holo-card-static p-8 h-full flex flex-col">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={14} className="fill-neon-cyan text-neon-cyan" />
                   ))}
                 </div>
-
-                {/* Text */}
-                <p
-                  className="text-base md:text-lg leading-relaxed mb-8 font-medium"
-                  style={{ color: "#cbd5e1" }}
-                >
-                  "{t.text}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center font-display font-bold text-sm"
-                      style={{ background: `${t.color}20`, color: t.color, border: `1px solid ${t.color}30` }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-white">{t.name}</p>
-                      <p className="text-xs" style={{ color: "#64748b" }}>{t.role}, {t.company}</p>
-                    </div>
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 flex-1">&ldquo;{t.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-neon-cyan/5">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-display font-bold text-white">
+                    {t.initials}
                   </div>
-                  <span
-                    className="px-3 py-1.5 text-[10px] font-semibold rounded-full"
-                    style={{
-                      background: `${t.color}10`,
-                      border: `1px solid ${t.color}25`,
-                      color: t.color,
-                    }}
-                  >
-                    {t.tag}
-                  </span>
+                  <div>
+                    <div className="text-sm font-display font-bold text-white">{t.name}</div>
+                    <div className="text-xs font-mono text-slate-500">{t.role}, {t.company}</div>
+                  </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-between mt-6">
-            {/* Dots */}
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setDirection(i > activeIdx ? 1 : -1); setActiveIdx(i); }}
-                  className="transition-all duration-300"
-                  style={{
-                    width: i === activeIdx ? "24px" : "6px",
-                    height: "6px",
-                    borderRadius: "3px",
-                    background: i === activeIdx ? testimonials[i].color : "rgba(255,255,255,0.15)",
-                  }}
-                />
-              ))}
-            </div>
+        {/* Show remaining 2 */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
+          {testimonials.slice(3).map((t, i) => (
+            <ScrollReveal key={t.name} delay={(i + 3) * 0.1}>
+              <div className="holo-card-static p-8 h-full flex flex-col">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={14} className="fill-neon-cyan text-neon-cyan" />
+                  ))}
+                </div>
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 flex-1">&ldquo;{t.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-neon-cyan/5">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-display font-bold text-white">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-sm font-display font-bold text-white">{t.name}</div>
+                    <div className="text-xs font-mono text-slate-500">{t.role}, {t.company}</div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
 
-            {/* Arrow buttons */}
-            <div className="flex gap-2">
+        {/* Mobile: auto-sliding single card */}
+        <div className="lg:hidden relative min-h-[320px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="holo-card-static p-8"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} size={14} className="fill-neon-cyan text-neon-cyan" />
+                ))}
+              </div>
+              <p className="text-sm text-slate-300 leading-relaxed mb-6">&ldquo;{testimonials[active].text}&rdquo;</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-neon-cyan/5">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-display font-bold text-white">
+                  {testimonials[active].initials}
+                </div>
+                <div>
+                  <div className="text-sm font-display font-bold text-white">{testimonials[active].name}</div>
+                  <div className="text-xs font-mono text-slate-500">{testimonials[active].role}, {testimonials[active].company}</div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
               <button
-                onClick={() => navigate(-1)}
-                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.15)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; }}
-              >
-                <ChevronLeft size={16} className="text-white/60" />
-              </button>
-              <button
-                onClick={() => navigate(1)}
-                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.15)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)"; }}
-              >
-                <ChevronRight size={16} className="text-white/60" />
-              </button>
-            </div>
+                key={i}
+                onClick={() => setActive(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{
+                  backgroundColor: active === i ? "#00F5FF" : "rgba(0,245,255,0.15)",
+                  boxShadow: active === i ? "0 0 8px #00F5FF" : "none"
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
