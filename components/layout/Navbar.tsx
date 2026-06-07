@@ -141,8 +141,9 @@ export default function Navbar() {
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
               </button>
               <a
-                href="tel:+97400000000"
+                href="tel:+97455711741"
                 className="flex items-center justify-center w-10 h-10 rounded-full border border-neon-cyan/10 text-slate-400 hover:text-neon-cyan hover:border-neon-cyan/30 hover:bg-neon-cyan/5 transition-all duration-300"
+                aria-label="Call +974 5571 1741"
               >
                 <Phone size={16} />
               </a>
