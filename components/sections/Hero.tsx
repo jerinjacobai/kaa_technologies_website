@@ -22,7 +22,7 @@ const portalCards = [
     id: 2, num: "03", label: "Advanced Security Solutions",
     sub: "Doha Security Operations", image: "/cctv-biometrics.png", accent: "#00F5FF",
     icon: ShieldCheck,
-    desc: "Advanced IP surveillance systems and secure biometric access/attendance controls integrated natively into your ERP."
+    desc: "Advanced biometric access control systems and enterprise network hardening solutions integrated natively into your ERP."
   }
 ];
 

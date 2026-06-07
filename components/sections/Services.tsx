@@ -30,12 +30,12 @@ const strategicVerticals = [
   {
     id: "advanced-security", badge: "Strategic Vertical 03",
     title: "Advanced Security Solutions",
-    subtitle: "Biometric attendance controllers, IP surveillance, & physical network security",
-    desc: "State-of-the-art security installations to protect and monitor your physical infrastructure. We deploy advanced surveillance systems and secure biometric attendance/access controls, fully integrated with your business networks.",
+    subtitle: "Biometric attendance controllers, firewall hardening, & secure network architecture",
+    desc: "State-of-the-art security installations to protect and secure your corporate digital environment. We deploy secure biometric attendance/access controls and robust network security protocols, fully integrated with your business networks.",
     accent: "#00F5FF", image: "/cctv-biometrics.png",
-    tags: ["IP Surveillance", "Biometric Access", "Network Hardening", "ERP Integration"],
+    tags: ["Biometric Access", "Network Hardening", "Firewall Controls", "ERP Integration"],
     icon: ShieldCheck,
-    bullets: ["High-Definition IP Surveillance & Smart Camera Deployments", "Biometric Access & Attendance System Integration", "Structural Network Hardening & Secure Storage Hubs", "Seamless Integration with Corporate ERP & HRMS"]
+    bullets: ["Enterprise Biometric Access & Attendance System Integration", "Structural Network Hardening & Secure Storage Hubs", "Advanced Firewall Configuration & Threat Prevention", "Seamless Integration with Corporate ERP & HRMS"]
   }
 ];
 

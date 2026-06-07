@@ -10,7 +10,6 @@ import Process from "@/components/sections/Process";
 import Portfolio from "@/components/sections/Portfolio";
 import Industries from "@/components/sections/Industries";
 import CTA from "@/components/sections/CTA";
-import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import StarfieldCanvas from "@/components/effects/StarfieldCanvas";
@@ -32,7 +31,6 @@ export default function Home() {
         <Portfolio />
         <Industries />
         <CTA />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />
