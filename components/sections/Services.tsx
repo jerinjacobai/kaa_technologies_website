@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Server, Shield, Megaphone, Cctv, ArrowRight, Check, Cpu, Layers, Sparkles } from "lucide-react";
+import { Globe, Server, Shield, Megaphone, ShieldCheck, ArrowRight, Check, Cpu, Layers, Sparkles } from "lucide-react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import HolographicCard from "@/components/effects/HolographicCard";
@@ -28,13 +28,13 @@ const strategicVerticals = [
     bullets: ["Bespoke LLM AI Assistants & Custom Chatbots", "Robotic Process Automation (RPA) Pipeline Workflows", "Intelligent Predictive Analytics & Real-Time Reporting", "Automated System Syncs & Third-Party Integrations"]
   },
   {
-    id: "security-cctv", badge: "Strategic Vertical 03",
-    title: "Advanced CCTV & Smart Biometric Networks",
-    subtitle: "Biometric attendance controllers, IP surveillance, & network security",
-    desc: "State-of-the-art security installations to protect and monitor your physical infrastructure. We deploy advanced IP surveillance CCTV setups and secure biometric attendance/access controls, fully integrated with your business networks.",
+    id: "advanced-security", badge: "Strategic Vertical 03",
+    title: "Advanced Security Solutions",
+    subtitle: "Biometric attendance controllers, IP surveillance, & physical network security",
+    desc: "State-of-the-art security installations to protect and monitor your physical infrastructure. We deploy advanced surveillance systems and secure biometric attendance/access controls, fully integrated with your business networks.",
     accent: "#00F5FF", image: "/cctv-biometrics.png",
-    tags: ["CCTV Surveillance", "Biometric Access", "Network Hardening", "ERP Integration"],
-    icon: Cctv,
+    tags: ["IP Surveillance", "Biometric Access", "Network Hardening", "ERP Integration"],
+    icon: ShieldCheck,
     bullets: ["High-Definition IP Surveillance & Smart Camera Deployments", "Biometric Access & Attendance System Integration", "Structural Network Hardening & Secure Storage Hubs", "Seamless Integration with Corporate ERP & HRMS"]
   }
 ];

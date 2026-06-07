@@ -62,7 +62,7 @@ export default function About() {
                   </div>
                   <div className="text-[11px] font-mono font-bold text-neon-magenta/80 uppercase mb-2">Doha (West Bay Office)</div>
                   <p className="text-xs text-slate-400 leading-relaxed group-hover:text-white/95 transition-colors">
-                    Directs local client relations, solution architecture, networking audits, and physical biometric &amp; CCTV system security configurations.
+                    Directs local client relations, solution architecture, networking audits, and physical biometric &amp; advanced security solution configurations.
                   </p>
                 </HolographicCard>
 

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Layers, Cpu, Cctv, Sparkles } from "lucide-react";
+import { ArrowRight, Layers, Cpu, ShieldCheck, Sparkles } from "lucide-react";
 import Image from "next/image";
 import TypewriterText from "@/components/effects/TypewriterText";
 
@@ -19,10 +19,10 @@ const portalCards = [
     desc: "Bespoke LLM integrations, robotic process automation pipelines, database syncs, and intelligent neural assistants."
   },
   {
-    id: 2, num: "03", label: "Advanced CCTV & Biometrics",
-    sub: "Doha Surveillance Center", image: "/cctv-biometrics.png", accent: "#00F5FF",
-    icon: Cctv,
-    desc: "Advanced IP camera surveillance setups and secure biometric access attendance systems integrated natively into your ERP."
+    id: 2, num: "03", label: "Advanced Security Solutions",
+    sub: "Doha Security Operations", image: "/cctv-biometrics.png", accent: "#00F5FF",
+    icon: ShieldCheck,
+    desc: "Advanced IP surveillance systems and secure biometric access/attendance controls integrated natively into your ERP."
   }
 ];
 
@@ -110,7 +110,7 @@ export default function Hero() {
             >
               <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">{">"}</span>
               <TypewriterText
-                texts={["ERP Systems", "AI Automation", "CCTV & Biometrics", "Custom Websites"]}
+                texts={["ERP Systems", "AI Automation", "Security Solutions", "Custom Websites"]}
                 className="text-neon-cyan text-lg font-mono"
               />
             </motion.div>

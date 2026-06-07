@@ -5,7 +5,7 @@ const projects = [
   { title: "Enterprise ERP Suite", desc: "Full-scale Qatar WPS-compliant ERP system with HRMS, payroll, inventory, and financial ledger modules for a major trading conglomerate.", tags: ["ERP", "HRMS", "WPS", "Finance"], gradient: "from-neon-magenta/30 to-neon-purple/30" },
   { title: "E-Commerce Platform", desc: "Premium e-commerce storefront with integrated payment gateway, inventory sync, and brand-focused design for a Qatar-based luxury retailer.", tags: ["E-Commerce", "Payments", "UI/UX"], gradient: "from-neon-purple/30 to-neon-cyan/30" },
   { title: "AI Chatbot System", desc: "Custom LLM-powered AI assistant with multi-language support, trained on company knowledge base for automated customer service.", tags: ["AI", "LLM", "NLP", "Automation"], gradient: "from-neon-cyan/30 to-neon-green/30" },
-  { title: "CCTV Network Setup", desc: "Enterprise-wide IP surveillance system with 200+ cameras, biometric access control, and real-time monitoring dashboard integration.", tags: ["CCTV", "IoT", "Security", "Biometrics"], gradient: "from-neon-green/20 to-neon-cyan/30" },
+  { title: "Advanced Security Deployment", desc: "Enterprise-wide IP surveillance and biometric access control system across multiple sites, with real-time monitoring dashboard integrated into the corporate ERP.", tags: ["IP Surveillance", "Biometrics", "Security", "ERP Integration"], gradient: "from-neon-green/20 to-neon-cyan/30" },
   { title: "Marketing Dashboard", desc: "Real-time digital marketing analytics platform with SEO tracking, campaign ROI metrics, and automated reporting pipelines.", tags: ["Analytics", "SEO", "Dashboard", "SaaS"], gradient: "from-neon-magenta/20 to-neon-cyan/20" },
 ];
 
