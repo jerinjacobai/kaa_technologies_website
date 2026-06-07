@@ -110,7 +110,7 @@ export default function Hero() {
             >
               <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">{">"}</span>
               <TypewriterText
-                texts={["ERP Systems", "AI Automation", "Security Solutions", "Custom Websites"]}
+                texts={["ERP Systems", "AI Automation", "Security Solutions", "Custom Websites", "Cloud & Cybersecurity", "24/7 IT Support"]}
                 className="text-neon-cyan text-lg font-mono"
               />
             </motion.div>

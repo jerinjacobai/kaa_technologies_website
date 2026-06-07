@@ -42,6 +42,16 @@ export default function About() {
               </h2>
             </ScrollReveal>
 
+            <ScrollReveal delay={0.18}>
+              <div className="p-5 rounded-2xl mb-6 border" style={{ background: "rgba(255,0,110,0.04)", borderColor: "rgba(255,0,110,0.12)" }}>
+                <p className="text-xs font-mono font-semibold uppercase tracking-widest text-neon-magenta mb-2">We Don&apos;t Just Sell Software</p>
+                <p className="text-white font-display font-semibold text-base mb-1">Your Growth. Our Purpose.</p>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Our mission is simple — empower every business with smart, scalable, and reliable IT solutions that actually make a difference.
+                </p>
+              </div>
+            </ScrollReveal>
+
             <ScrollReveal delay={0.2}>
               <p className="text-base md:text-lg leading-relaxed mb-6 text-slate-400">
                 KAA Software and Technologies operates a high-performance <strong className="text-white">dual-location model</strong> to serve our enterprise clients. With our strategic corporate headquarters based in <strong className="text-white">Doha, Qatar</strong>, and our advanced software engineering and AI hub situated in <strong className="text-white">Kochi, India</strong>, we deliver cutting-edge IT systems and smart automation workflows with rapid local turnaround times.

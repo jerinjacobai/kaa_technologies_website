@@ -1,61 +1,88 @@
 "use client";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Zap } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import GlitchText from "@/components/effects/GlitchText";
-import NeonBorder from "@/components/effects/NeonBorder";
 
 export default function CTA() {
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
+  const scrollTo = (id: string) => {
+    const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="cta" className="relative py-24 overflow-hidden bg-space-void">
-      <div className="perspective-grid" />
+    <section className="section-padding relative overflow-hidden bg-space-deep">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 perspective-grid opacity-50" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-neon-cyan/4 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/25 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-purple/25 to-transparent" />
+      </div>
 
       <div className="kaa-container relative z-10">
-        <ScrollReveal>
-          <NeonBorder borderRadius="2.5rem">
-            <div className="relative overflow-hidden p-8 sm:p-16 text-center scan-lines">
-              {/* Background layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-magenta/8 to-neon-purple/8" />
-              <div className="absolute inset-0 subtle-grid opacity-15 mix-blend-overlay" />
-
-              {/* Glowing orbs */}
-              <div className="absolute -top-32 -left-32 w-[300px] h-[300px] bg-neon-magenta/20 rounded-full blur-[100px]" />
-              <div className="absolute -bottom-32 -right-32 w-[300px] h-[300px] bg-neon-purple/20 rounded-full blur-[100px]" />
-
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-semibold mb-8 uppercase tracking-widest bg-neon-cyan/[0.04] border border-neon-cyan/10 text-neon-cyan">
-                  <Sparkles size={14} className="animate-pulse" />
-                  Free Consultation Available
-                </div>
-
-                <h2 className="font-display font-bold leading-tight mb-6 text-white" style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}>
-                  Ready to Transform Your <br />
-                  <GlitchText className="gradient-text-neon" color="inherit">
-                    Business Digitally?
-                  </GlitchText>
-                </h2>
-
-                <p className="text-base md:text-lg mb-10 max-w-xl mx-auto text-slate-400">
-                  Let&apos;s discuss your vision. Our expert team is ready to deliver innovative IT solutions tailored to your business needs.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button onClick={() => scrollTo("#contact")} id="cta-start-consultation" className="btn-neon">
-                    <span>Start Consultation</span>
-                    <ArrowRight size={16} />
-                  </button>
-                  <button onClick={() => scrollTo("#services")} className="btn-outline">
-                    View Our Services
-                  </button>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-3 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-neon-cyan" />
+              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-cyan">Ready to Transform?</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-neon-cyan" />
             </div>
-          </NeonBorder>
-        </ScrollReveal>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <h2 className="font-display font-bold text-white leading-tight mb-4" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}>
+              One Platform.{" "}
+              <span className="gradient-text-neon">Every Solution.</span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <p className="text-xl text-slate-400 mb-4 max-w-2xl mx-auto">
+              Less chaos. More clarity.
+            </p>
+            <p className="text-base text-slate-500 mb-10 max-w-xl mx-auto">
+              Your business has outgrown the old way. One system. Every department. Real-time data.
+              Ready to scale — starting today.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.3}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <motion.button
+                onClick={() => scrollTo("#erp")}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-neon text-base px-8 py-4"
+              >
+                <Zap size={18} />
+                <span>It&apos;s Time For ERP</span>
+              </motion.button>
+              <motion.button
+                onClick={() => scrollTo("#contact")}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-outline text-base px-8 py-4"
+              >
+                <span>Let KAA Handle It</span>
+                <ArrowRight size={16} />
+              </motion.button>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.4}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              {[
+                { label: "One Platform", sub: "Every Solution" },
+                { label: "Less Chaos", sub: "More Clarity" },
+                { label: "Ready to Scale", sub: "Starting Today" },
+              ].map((item) => (
+                <div key={item.label} className="p-4 rounded-2xl holo-card text-center">
+                  <div className="text-sm font-display font-bold text-white mb-0.5">{item.label}</div>
+                  <div className="text-xs text-slate-500">{item.sub}</div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

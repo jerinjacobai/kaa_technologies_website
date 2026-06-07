@@ -1,40 +1,58 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { Shield, Settings, MousePointer, Users, TrendingUp, ArrowRight, Check, Mail, MessageCircle } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { ShieldCheck, Zap } from "lucide-react";
 
-const skills = [
-  { label: "Software Development", value: 98 },
-  { label: "Networking Solutions", value: 99 },
-  { label: "Web & Mobile Application Development", value: 100 },
-  { label: "Digital Marketing", value: 100 },
+const pillars = [
+  {
+    icon: Shield,
+    title: "Reliable & Secure",
+    subtitle: "Enterprise-grade protection",
+    points: ["Enterprise security", "Full audit trails", "99.9% uptime SLA"],
+    accent: "#FF006E",
+    description: "Every KAA system is built with security-first architecture. Your data stays protected, backed up, and compliant.",
+  },
+  {
+    icon: Settings,
+    title: "Built Around Your Workflow",
+    subtitle: "Your process, not a template",
+    points: ["Custom processes", "Workflow management", "Flexible operations"],
+    accent: "#8B5CF6",
+    description: "We map your actual business workflows — not force you into a generic template. Every module adapts to how you work.",
+  },
+  {
+    icon: MousePointer,
+    title: "Easy to Use",
+    subtitle: "Adopted fast, loved faster",
+    points: ["User-friendly UI", "Faster adoption", "Simple interface"],
+    accent: "#00F5FF",
+    description: "Clean dashboards your team will actually use. No training marathons. Just intuitive tools that make sense on day one.",
+  },
+  {
+    icon: Users,
+    title: "Team Collaboration",
+    subtitle: "One platform, every department",
+    points: ["Connected departments", "Role-based access", "Shared dashboards"],
+    accent: "#39FF14",
+    description: "Sales, HR, Finance, and Operations — all connected in real time. No more silos, no more miscommunication.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Ready to Scale",
+    subtitle: "Grows with your business",
+    points: ["Built for growth", "Multi-location support", "Multi-device access"],
+    accent: "#FF8C00",
+    description: "Whether you have 5 or 500 employees, KAA scales with you. Add users, locations, and modules as you grow.",
+  },
 ];
-
-function AnimatedBar({ value, delay }: { value: number; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setWidth(value), delay * 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isInView, value, delay]);
-
-  return (
-    <div ref={ref}>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${width}%` }} />
-      </div>
-    </div>
-  );
-}
 
 export default function WhyChooseUs() {
   const scrollToContact = () => {
     const el = document.querySelector("#contact");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToERP = () => {
+    const el = document.querySelector("#erp");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -42,91 +60,141 @@ export default function WhyChooseUs() {
     <section id="why-choose-us" className="section-padding relative overflow-hidden bg-space-void">
       <div className="perspective-grid" />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -left-40 -top-40 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[150px]" />
+        <div className="absolute -left-40 top-0 w-[600px] h-[600px] bg-neon-cyan/4 rounded-full blur-[150px]" />
+        <div className="absolute -right-40 bottom-0 w-[500px] h-[500px] bg-neon-purple/4 rounded-full blur-[150px]" />
       </div>
 
       <div className="relative z-10 kaa-container">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div>
-            <ScrollReveal>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-[1px] w-10 bg-gradient-to-r from-transparent to-neon-cyan" />
-                <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-cyan">Why Choose Us</span>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.1}>
-              <h2 className="font-display font-bold leading-tight mb-6 text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                We Bring Smart IT &amp; <br />
-                <span className="gradient-text-neon">Software Solutions</span>
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <p className="text-base md:text-lg leading-relaxed mb-8 text-slate-400">
-                At KAA Software and Technologies, we provide innovative technology services, backed by an expert team and reliable support, to help your business grow, perform, and succeed in the digital world.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3}>
-              <button onClick={scrollToContact} className="btn-neon">
-                <span>Contact Us</span>
-              </button>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.4}>
-              <div className="mt-12 inline-flex items-center gap-4 p-5 rounded-2xl holo-card">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-neon-magenta/15 to-neon-purple/15 border border-neon-cyan/10 relative overflow-hidden">
-                  <span className="text-xl relative z-10">🏆</span>
-                  <div className="absolute inset-0 bg-neon-cyan/10 blur-md" />
-                </div>
-                <div>
-                  <div className="text-sm font-display font-bold text-white mb-1">Qatar&apos;s Trusted IT Partner</div>
-                  <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">Delivering Excellence</div>
-                </div>
-              </div>
-            </ScrollReveal>
+        {/* Header */}
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-neon-cyan" />
+              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-cyan">Why Choose Us</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-neon-cyan" />
+            </div>
+            <h2 className="font-display font-bold text-white leading-tight mb-4" style={{ fontSize: "clamp(2rem, 4.5vw, 3.2rem)" }}>
+              What Makes{" "}
+              <span className="gradient-text-neon">Good Business Tech?</span>
+            </h2>
+            <p className="text-slate-400 text-base max-w-2xl mx-auto">
+              At KAA, we build technology that doesn&apos;t just work — it works for <em>your</em> business.
+              Here&apos;s what sets every solution we deliver apart.
+            </p>
           </div>
+        </ScrollReveal>
 
-          <div className="space-y-10 w-full max-w-lg mx-auto lg:ml-auto lg:mr-0">
-            <div className="space-y-8">
-              {skills.map((skill, i) => (
-                <ScrollReveal key={skill.label} delay={i * 0.1}>
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-display font-semibold text-white">{skill.label}</span>
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 + i * 0.1 }}
-                        className="text-sm font-mono font-bold gradient-text-neon"
-                      >
-                        {skill.value}%
-                      </motion.span>
-                    </div>
-                    <AnimatedBar value={skill.value} delay={0.3 + i * 0.15} />
+        {/* 5 Pillar Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-5 mb-16">
+          {pillars.map((pillar, i) => {
+            const Icon = pillar.icon;
+            return (
+              <ScrollReveal key={pillar.title} delay={i * 0.08}>
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="relative p-6 rounded-2xl holo-card overflow-hidden group h-full flex flex-col"
+                  style={{ borderColor: `${pillar.accent}18` }}
+                >
+                  {/* Hover glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+                    style={{ background: `radial-gradient(ellipse at top left, ${pillar.accent}08 0%, transparent 70%)` }}
+                  />
+
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 flex-shrink-0"
+                    style={{ background: `${pillar.accent}12`, border: `1px solid ${pillar.accent}25` }}
+                  >
+                    <Icon size={22} style={{ color: pillar.accent }} />
                   </div>
-                </ScrollReveal>
-              ))}
+
+                  {/* Title */}
+                  <h3 className="font-display font-bold text-white text-base leading-snug mb-1">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-[10px] font-mono uppercase tracking-wider mb-4" style={{ color: `${pillar.accent}99` }}>
+                    {pillar.subtitle}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-slate-400 text-xs leading-relaxed mb-5 flex-1">
+                    {pillar.description}
+                  </p>
+
+                  {/* Check points */}
+                  <div className="space-y-1.5">
+                    {pillar.points.map((point) => (
+                      <div key={point} className="flex items-center gap-2">
+                        <div
+                          className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{ background: `${pillar.accent}12`, border: `1px solid ${pillar.accent}25` }}
+                        >
+                          <Check size={8} style={{ color: pillar.accent }} />
+                        </div>
+                        <span className="text-[11px] text-slate-400">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+
+        {/* Bottom — mission statement + CTA */}
+        <ScrollReveal delay={0.3}>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-neon-magenta" />
+                <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-neon-magenta">Qatar&apos;s Trusted IT Partner</span>
+              </div>
+              <h3 className="font-display font-bold text-2xl text-white leading-tight mb-4">
+                We Bring Smart IT &amp;{" "}
+                <span className="gradient-text-neon">Software Solutions</span>
+              </h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                At KAA Software and Technologies, we provide innovative technology services,
+                backed by an expert team and reliable 24/7 support, to help your business grow,
+                perform, and succeed in the digital world.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button onClick={scrollToERP} className="btn-neon">
+                  <span>Explore Our Platform</span>
+                  <ArrowRight size={14} />
+                </button>
+                <button onClick={scrollToContact} className="btn-outline">
+                  Contact Us
+                </button>
+              </div>
             </div>
 
-            <ScrollReveal delay={0.5}>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: <Zap className="text-amber-400" size={24} />, title: "Fast Delivery", desc: "On-time completion" },
-                  { icon: <ShieldCheck className="text-emerald-400" size={24} />, title: "Secure & Reliable", desc: "Enterprise security" },
-                ].map((item) => (
-                  <div key={item.title} className="p-5 rounded-2xl holo-card-static group">
-                    <div className="mb-3 transition-transform duration-300 group-hover:scale-110">{item.icon}</div>
-                    <div className="text-sm font-display font-bold text-white mb-1">{item.title}</div>
-                    <div className="text-xs text-slate-500">{item.desc}</div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Shield, label: "Qatar&apos;s Trusted Partner", sub: "Delivering Excellence Since Day One", accent: "#FF006E" },
+                { icon: TrendingUp, label: "150+ Projects Delivered", sub: "Across Qatar, GCC & India", accent: "#00F5FF" },
+                { icon: Users, label: "50+ Businesses", sub: "Running on KAA Systems", accent: "#8B5CF6" },
+                { icon: MessageCircle, label: "24/7 Support", sub: "Always here when you need us", accent: "#39FF14" },
+              ].map((item) => {
+                const ItemIcon = item.icon;
+                return (
+                  <div key={item.label} className="p-5 rounded-2xl holo-card-static group"
+                    style={{ borderColor: `${item.accent}15` }}>
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
+                      style={{ background: `${item.accent}10`, border: `1px solid ${item.accent}20` }}>
+                      <ItemIcon size={16} style={{ color: item.accent }} />
+                    </div>
+                    <div className="text-sm font-display font-bold text-white mb-0.5"
+                      dangerouslySetInnerHTML={{ __html: item.label }} />
+                    <div className="text-xs text-slate-500">{item.sub}</div>
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

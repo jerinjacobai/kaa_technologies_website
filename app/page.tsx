@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 import About from "@/components/sections/About";
+import BusinessProblems from "@/components/sections/BusinessProblems";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Services from "@/components/sections/Services";
 import ERPShowcase from "@/components/sections/ERPShowcase";
@@ -23,6 +24,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <About />
+        <BusinessProblems />
         <WhyChooseUs />
         <Services />
         <ERPShowcase />

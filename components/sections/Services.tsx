@@ -40,9 +40,36 @@ const strategicVerticals = [
 ];
 
 const foundationalPillars = [
-  { icon: Server, title: "Managed Infrastructure & Networking", desc: "Robust enterprise servers, high-speed structural networking, and round-the-clock proactive IT management to keep your business operating securely." },
-  { icon: Shield, title: "Cloud Migration & Cyber Defense", desc: "Secure cloud migration pipelines, automated active backup/disaster recovery systems, and comprehensive enterprise cybersecurity audits." },
-  { icon: Megaphone, title: "Digital Branding & Growth Marketing", desc: "Strategic Search Engine Optimization (SEO), high-fidelity brand design, and high-impact digital campaigns to drive corporate visibility." }
+  {
+    icon: Shield,
+    title: "Is Your Business Data Safe?",
+    desc: "KAA Technologies keeps your business protected 24/7. Because one mistake shouldn't cost you everything.",
+    stat: "95% of cybersecurity breaches are caused by human error.",
+    statSub: "100% of them — preventable.",
+    features: ["Firewall", "Anti-Virus", "Email Security", "Threat Detection", "Data Protection", "Secure Cloud"],
+    accent: "#FF006E",
+    isCyber: true,
+  },
+  {
+    icon: Server,
+    title: "24/7 IT Support & Managed Infrastructure",
+    desc: "Round-the-clock proactive IT management, robust enterprise servers, high-speed structural networking, and cloud migration pipelines to keep your business always online.",
+    stat: "24/7",
+    statSub: "Always-on support",
+    features: ["Network Management", "Cloud Migration", "Disaster Recovery", "IT Helpdesk", "Server Management", "Backup Systems"],
+    accent: "#00F5FF",
+    isCyber: false,
+  },
+  {
+    icon: Megaphone,
+    title: "Digital Branding & Growth Marketing",
+    desc: "Strategic Search Engine Optimization (SEO), high-fidelity brand design, and high-impact digital campaigns to drive corporate visibility and business growth.",
+    stat: "360°",
+    statSub: "Digital presence",
+    features: ["SEO Strategy", "Brand Design", "Social Media", "Content Marketing", "PPC Campaigns", "Analytics"],
+    accent: "#8B5CF6",
+    isCyber: false,
+  },
 ];
 
 export default function Services() {
@@ -176,16 +203,47 @@ export default function Services() {
             const PillarIcon = pillar.icon;
             return (
               <ScrollReveal key={pillar.title} delay={i * 0.1}>
-                <div className="relative h-full p-8 rounded-[24px] group overflow-hidden holo-card cursor-pointer">
-                  <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/0 to-neon-purple/0 group-hover:from-neon-cyan/[0.03] group-hover:to-neon-purple/[0.03] transition-colors duration-500" />
+                <div className="relative h-full p-7 rounded-[24px] group overflow-hidden holo-card cursor-pointer"
+                  style={{ borderColor: `${pillar.accent}18` }}>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]"
+                    style={{ background: `radial-gradient(ellipse at top, ${pillar.accent}06 0%, transparent 70%)` }} />
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 bg-neon-cyan/5 border border-neon-cyan/10 group-hover:bg-neon-cyan/10 group-hover:border-neon-cyan/25 transition-colors duration-300">
-                      <PillarIcon size={20} className="text-slate-400 group-hover:text-neon-cyan transition-colors duration-300" />
+                    {/* Icon + Title */}
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-300"
+                      style={{ background: `${pillar.accent}10`, border: `1px solid ${pillar.accent}20` }}>
+                      <PillarIcon size={20} style={{ color: pillar.accent }} />
                     </div>
                     <h4 className="font-display font-bold text-lg mb-3 text-white leading-tight">{pillar.title}</h4>
-                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 group-hover:text-slate-300 transition-colors duration-300">{pillar.desc}</p>
-                    <button onClick={scrollToContact} className="flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 group-hover:text-neon-cyan transition-colors duration-300">
-                      Connect with Architects <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    <p className="text-slate-400 text-xs leading-relaxed mb-5">{pillar.desc}</p>
+
+                    {/* Features grid */}
+                    <div className="grid grid-cols-3 gap-1.5 mb-5">
+                      {pillar.features.map((feat) => (
+                        <span key={feat} className="text-[9px] font-mono px-1.5 py-1 rounded-md text-center leading-tight"
+                          style={{ background: `${pillar.accent}08`, border: `1px solid ${pillar.accent}15`, color: `${pillar.accent}CC` }}>
+                          {feat}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Stat block */}
+                    <div className="p-3 rounded-xl" style={{ background: `${pillar.accent}06`, border: `1px solid ${pillar.accent}12` }}>
+                      {pillar.isCyber ? (
+                        <>
+                          <p className="text-xs font-display font-bold text-white leading-snug mb-1">{pillar.stat}</p>
+                          <p className="text-xs text-slate-400">{pillar.statSub}</p>
+                        </>
+                      ) : (
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-display font-black" style={{ color: pillar.accent }}>{pillar.stat}</span>
+                          <span className="text-xs text-slate-400">{pillar.statSub}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <button onClick={scrollToContact} className="flex items-center gap-2 text-xs font-mono font-semibold mt-5 transition-colors duration-300"
+                      style={{ color: pillar.accent }}>
+                      Learn More <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </button>
                   </div>
                 </div>
