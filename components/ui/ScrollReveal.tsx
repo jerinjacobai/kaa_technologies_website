@@ -32,11 +32,11 @@ export default function ScrollReveal({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x, y, filter: "blur(6px)" }}
+      initial={{ opacity: 0, x, y }}
       animate={
         isInView
-          ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }
-          : { opacity: 0, x, y, filter: "blur(6px)" }
+          ? { opacity: 1, x: 0, y: 0 }
+          : { opacity: 0, x, y }
       }
       transition={{
         duration: 0.7,
