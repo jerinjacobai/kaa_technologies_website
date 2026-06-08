@@ -20,7 +20,7 @@ const portalCards = [
   },
   {
     id: 2, num: "03", label: "Advanced Security Solutions",
-    sub: "Doha Security Operations", image: "/cctv-biometrics.png", accent: "#00F5FF",
+    sub: "Doha Security Operations", image: "/security-biometrics.png", accent: "#00F5FF",
     icon: ShieldCheck,
     desc: "Advanced biometric access control systems and enterprise network hardening solutions integrated natively into your ERP."
   }
