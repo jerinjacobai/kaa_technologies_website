@@ -53,7 +53,7 @@ export default function Testimonials() {
                 Partner Testimonials Coming Soon
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-                Our clients are our best advocates. We are currently collecting verified feedback from our partners across Qatar, GCC, and India to share here.
+                Our clients are our best advocates. We are currently collecting verified feedback from our enterprise partners across Qatar to share here.
               </p>
 
               <button

@@ -14,7 +14,7 @@ const portalCards = [
   },
   {
     id: 1, num: "02", label: "AI & Workflow Automation",
-    sub: "Kerala, India AI Lab", image: "/ai-automation.png", accent: "#8B5CF6",
+    sub: "Doha AI & Automation Lab", image: "/ai-automation.png", accent: "#8B5CF6",
     icon: Cpu,
     desc: "Bespoke LLM integrations, robotic process automation pipelines, database syncs, and intelligent neural assistants."
   },

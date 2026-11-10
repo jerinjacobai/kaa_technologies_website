@@ -7,8 +7,8 @@ import NeonBorder from "@/components/effects/NeonBorder";
 
 const stats = [
   { value: "Doha", label: "Qatar Headquarters" },
-  { value: "Kerala", label: "Engineering Center" },
-  { value: "24/7", label: "GCC Support" }
+  { value: "Qatar", label: "Technology Hub" },
+  { value: "24/7", label: "Dedicated Support" }
 ];
 
 export default function About() {
@@ -37,7 +37,7 @@ export default function About() {
 
             <ScrollReveal delay={0.1}>
               <h2 className="font-display font-bold leading-tight mb-6 text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                Global Presence. <br />
+                Qatar Presence. <br />
                 <span className="gradient-text-neon">Local Support.</span>
               </h2>
             </ScrollReveal>
@@ -54,10 +54,10 @@ export default function About() {
 
             <ScrollReveal delay={0.2}>
               <p className="text-base md:text-lg leading-relaxed mb-6 text-slate-400">
-                KAA Software and Technologies operates a high-performance <strong className="text-white">dual-location model</strong> to serve our enterprise clients. With our strategic corporate headquarters based in <strong className="text-white">Doha, Qatar</strong>, and our advanced software engineering and AI hub situated in <strong className="text-white">Kerala, India</strong>, we deliver cutting-edge IT systems and smart automation workflows with rapid local turnaround times.
+                KAA Software and Technologies operates as a dedicated enterprise technology partner based in <strong className="text-white">Doha, Qatar</strong>. With our strategic corporate headquarters and advanced software engineering hub situated in Doha, we deliver cutting-edge business systems, custom enterprise software, and smart automation workflows with rapid local turnaround times.
               </p>
               <p className="text-sm sm:text-base leading-relaxed mb-8 text-slate-400">
-                While our engineering capability scales globally, our core market operations focus heavily on <strong className="text-white">Qatar and other GCC nations</strong> as well as the <strong className="text-white">Indian subcontinent</strong>, ensuring high-availability support and strict compliance with local WPS labor standards and security protocols.
+                Our operations focus dedicatedly on <strong className="text-white">Qatar</strong>, ensuring high-availability on-site support, close client collaboration, and strict compliance with Qatar WPS labor standards and national security protocols.
               </p>
             </ScrollReveal>
 
@@ -83,9 +83,9 @@ export default function About() {
                     </div>
                     <span className="text-sm font-display font-bold text-white uppercase tracking-wider">Development Center</span>
                   </div>
-                  <div className="text-[11px] font-mono font-bold text-neon-purple/80 uppercase mb-2">Kerala, India (IDC)</div>
+                  <div className="text-[11px] font-mono font-bold text-neon-purple/80 uppercase mb-2">Doha (Technology Hub)</div>
                   <p className="text-xs text-slate-400 leading-relaxed group-hover:text-white/95 transition-colors">
-                    Spearheads deep-tech full-stack engineering, core WPS ERP compilation, LLM artificial intelligence modeling, and digital branding execution.
+                    Spearheads deep-tech full-stack engineering, core Qatar WPS ERP compilation, LLM artificial intelligence modeling, and digital branding execution.
                   </p>
                 </HolographicCard>
               </div>
@@ -94,11 +94,11 @@ export default function About() {
             <ScrollReveal delay={0.4}>
               <div className="flex flex-wrap items-center gap-4">
                 <button onClick={scrollToContact} className="btn-neon">
-                  <span>Engage Worldwide</span>
+                  <span>Connect With Us</span>
                 </button>
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-                  <Globe size={14} className="text-neon-cyan" />
-                  <span>Doha / Kerala / Global</span>
+                  <MapPin size={14} className="text-neon-cyan" />
+                  <span>Doha, Qatar</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -111,7 +111,7 @@ export default function About() {
               <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-space-surface transition-transform duration-500 hover:scale-[1.01]">
                 <Image
                   src="/kaa-offices.png"
-                  alt="KAA Technologies Global Offices"
+                  alt="KAA Technologies Qatar Offices"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />

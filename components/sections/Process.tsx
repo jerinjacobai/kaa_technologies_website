@@ -10,7 +10,7 @@ const steps = [
   { num: "04", title: "Development", desc: "Full-stack engineering with modern frameworks, clean code practices, and agile sprint cycles for rapid progress.", icon: Code2 },
   { num: "05", title: "Testing & QA", desc: "Rigorous multi-layer testing — unit, integration, performance, and security — to ensure bulletproof reliability.", icon: TestTube2 },
   { num: "06", title: "Deployment", desc: "Seamless production launches with zero-downtime deployments, data migration, and go-live support.", icon: Rocket },
-  { num: "07", title: "Support & Optimization", desc: "Ongoing monitoring, performance tuning, feature updates, and 24/7 GCC-timezone technical support.", icon: HeadphonesIcon },
+  { num: "07", title: "Support & Optimization", desc: "Ongoing monitoring, performance tuning, feature updates, and 24/7 local Qatar technical support.", icon: HeadphonesIcon },
 ];
 
 export default function Process() {
